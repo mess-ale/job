@@ -1,8 +1,18 @@
 import { Button, Divider, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const updateTimer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(updateTimer); // Cleanup on unmount
+  }, []);
+
   const linkStyle = {
     color: "#000",
     textDecoration: "none",
@@ -67,7 +77,9 @@ export const Footer = () => {
           </Stack>
 
           <Stack>
-            <Link  style={linkStyle} to="/Privacy">Privacy Policy</Link>
+            <Link style={linkStyle} to="/Privacy">
+              Privacy Policy
+            </Link>
           </Stack>
         </Stack>
 
@@ -78,8 +90,13 @@ export const Footer = () => {
             fontWeight: "bold",
           }}
         >
-          © 2024 by Worldview Training and Consulting Service PLC. All Rights
-          Reserved.
+          <Typography>
+            The current time is: {currentTime.toLocaleTimeString()}
+          </Typography>
+          <Typography>
+            © 2024 by Worldview Training and Consulting Service PLC. All Rights
+            Reserved.
+          </Typography>
         </Stack>
       </Stack>
     </Stack>
