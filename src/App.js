@@ -1,11 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Pages/Home';
-import About from './Pages/About';
-import Contact from './Pages/Contact';
-import Content from './Pages/services/ContentCreationAndManagment';
-import Customer from './Pages/services/CustomerEngagement';
-import Digtal from './Pages/services/DigitalTechnology';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Content from "./Pages/services/ContentCreationAndManagment";
+import Customer from "./Pages/services/CustomerEngagement";
+import Digtal from "./Pages/services/DigitalTechnology";
 import MarketiongAndDesign from "./Pages/services/MarketiongAndDesign";
 import Overview from "./Pages/services/Overview";
 import StrategyAndAdvisory from "./Pages/services/StrategyAndAdvisory";
@@ -13,13 +18,13 @@ import ComplianceAndRiskTraining from "./Pages/solutions/ComplianceAndRiskTraini
 import EmployeeOnboarding from "./Pages/solutions/EmployeeOnboarding";
 import HealthAndSafetyTraining from "./Pages/solutions/HealthAndSafetyTraining";
 import LeadershipDevelopmentTraining from "./Pages/solutions/LeadershipDevelopmentTraining";
-import LearningManagement from './Pages/solutions/LearningManagementSystem';
+import LearningManagement from "./Pages/solutions/LearningManagementSystem";
 import SalsesAndServiceTraining from "./Pages/solutions/SalsesAndServiceTraining";
 import Blog from "./Pages/insights/Blog";
 import FutureOfWork from "./Pages/insights/FutureOfWork";
 import Microlearning from "./Pages/insights/Microlearning";
 import Privacy from "./Pages/Privacy";
-import MainLayout from './components/MainLayout';
+import MainLayout from "./components/MainLayout";
 
 export default function App() {
   return (
@@ -42,12 +47,24 @@ export default function App() {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Route>
         <Route path="/solutions" element={<MainLayout />}>
-          <Route path="SalsesAndServiceTraining" element={<SalsesAndServiceTraining />} />
+          <Route
+            path="SalsesAndServiceTraining"
+            element={<SalsesAndServiceTraining />}
+          />
           <Route path="LearningManagement" element={<LearningManagement />} />
-          <Route path="LeadershipDevelopmentTraining" element={<LeadershipDevelopmentTraining />} />
-          <Route path="HealthAndSafetyTraining" element={<HealthAndSafetyTraining />} />
+          <Route
+            path="LeadershipDevelopmentTraining"
+            element={<LeadershipDevelopmentTraining />}
+          />
+          <Route
+            path="HealthAndSafetyTraining"
+            element={<HealthAndSafetyTraining />}
+          />
           <Route path="EmployeeOnboarding" element={<EmployeeOnboarding />} />
-          <Route path="ComplianceAndRiskTraining" element={<ComplianceAndRiskTraining />} />
+          <Route
+            path="ComplianceAndRiskTraining"
+            element={<ComplianceAndRiskTraining />}
+          />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Route>
         <Route path="/insights" element={<MainLayout />}>

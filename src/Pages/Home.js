@@ -1,8 +1,7 @@
 import React from "react";
 import { Footer } from "../components/Footer";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography, } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
-import HamburgerHome from "../components/HamburgerHome";
 import {
   AcUnit,
   ArrowDownwardRounded,
@@ -17,6 +16,7 @@ import dame from "../assets/dame.png";
 import success from "../assets/success.png";
 import SwitchingStacks from "../components/SwitchingStacks";
 
+
 export const Home = () => {
   return (
     <Stack
@@ -26,31 +26,10 @@ export const Home = () => {
         flexDirection: "column",
       }}
     >
-      <Stack>
-        <Stack
-          sx={{
-            display: {
-              xs: "flex",
-              sm: "flex",
-              md: "none",
-            },
-          }}
-        >
-          <HamburgerHome />
-        </Stack>
-        <Stack
-          sx={{
-            display: {
-              xs: "none",
-              sm: "none",
-              md: "flex",
-            },
-          }}
-        >
+        <Stack>
           <HomeHeader />
         </Stack>
-      </Stack>
-
+          
       <Stack>
         <SwitchingStacks />
       </Stack>
