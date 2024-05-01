@@ -488,7 +488,7 @@ export const Home = () => {
       <Stack direction={"row"} padding={"0rem 4rem 0rem 4rem"}>
         <Stack>
           <img
-            style={{ borderTopLeftRadius: "2rem" }}
+            style={{ borderTopLeftRadius: "2rem", width: '100%', height: '100%' }}
             src={success}
             alt="success"
           />
