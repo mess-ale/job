@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
-import { Box, Button, Grid, Stack, Typography, } from "@mui/material";
+import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import {
-  AcUnit,
   ArrowDownwardRounded,
   Build,
   Business,
@@ -12,12 +11,37 @@ import {
   TipsAndUpdates,
 } from "@mui/icons-material";
 import Businesses from "../assets/Rectangle.png";
-import dame from "../assets/dame.png";
 import success from "../assets/success.png";
 import SwitchingStacks from "../components/SwitchingStacks";
 
-
 export const Home = () => {
+  const gridItem = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    background: "#000",
+    height: "100%",
+    width: "100%",
+  };
+  const image = {
+    maxWidth: "100%",
+    maxHeight: "100%",
+    borderRadius: { xs: "1rem 1rem 0 0", md: "1rem 0 0 0" },
+    objectFit: "cover",
+  };
+  const [isArrowUp, setIsArrowUp] = useState(false);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIsArrowUp((prevIsArrowUp) => !prevIsArrowUp);
+    }, 1000); // Change the interval time (in milliseconds) as per your requirement
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <Stack
       sx={{
@@ -26,28 +50,58 @@ export const Home = () => {
         flexDirection: "column",
       }}
     >
-        <Stack>
-          <HomeHeader />
-        </Stack>
-          
+      <Stack sx={{ position: "absolute" }}>
+        <HomeHeader />
+      </Stack>
+
       <Stack>
         <SwitchingStacks />
       </Stack>
 
-      <Stack padding={"0rem 0rem 1.5rem 4rem"}>
-        <Grid container spacing={"1rem"} paddingTop={"3rem"}>
-          <Grid item xs={12} sm={6} md={6}>
+      <Stack
+        padding={{
+          xs: "0rem 1.25rem 1rem 1.25rem",
+          sm: "0rem 1.5rem 1.2rem 1.5rem",
+          md: "0rem 0rem 1.35rem 2rem",
+          lg: "0rem 0rem 1.5rem 3rem",
+          el: "0rem 0rem 1.5rem 4rem",
+        }}
+      >
+        <Grid
+          container
+          spacing={{ xs: "0.6rem", md: "1rem" }}
+          paddingTop={{ xs: "1.25rem", sm: "1.5rem", md: "2rem", lg: "3rem" }}
+          alignItems="stretch"
+          sx={{
+            height: "100%",
+          }}
+        >
+          <Grid item xs={12} md={6} sx={{ display: "flex" }}>
             <Stack
               sx={{
                 background: "#89fc00",
-                padding: "3rem 2rem 3rem 3rem",
-                borderTopRightRadius: "2rem",
+                padding: {
+                  xs: "1rem 1.4rem 2rem 2rem",
+                  md: "2.25rem 1.5rem 2.25rem 2.25rem",
+                  lg: "3rem 2rem 3rem 3rem",
+                },
+                borderTopRightRadius: { xs: "1rem", md: "2rem" },
               }}
             >
-              <Typography sx={{ fontSize: "30px", paddingBottom: "1rem" }}>
+              <Typography
+                sx={{
+                  fontSize: { xs: "25px", md: "30px" },
+                  paddingBottom: { xs: "0.7rem", md: "1rem" },
+                }}
+              >
                 Services
               </Typography>
-              <Typography sx={{ width: "80%", paddingBottom: "2rem" }}>
+              <Typography
+                sx={{
+                  width: { xs: "90%", md: "80%" },
+                  paddingBottom: { xs: "1rem", md: "2rem" },
+                }}
+              >
                 Worldview Training and Consulting Service PLC offers a
                 comprehensive range of services encompassing Training,
                 Consulting, and Research. These services are tailored to meet
@@ -58,9 +112,12 @@ export const Home = () => {
               <Button
                 sx={{
                   border: "solid 2px black",
-                  width: "50%",
+                  width: { xs: "60%", sm: "50%", md: "70%", lg: "50%" },
                   color: "#000",
-                  borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
+                  borderRadius: {
+                    xs: "1rem 1rem 1rem 0rem",
+                    md: "1.5rem 1.5rem 1.5rem 0rem",
+                  },
                   textTransform: "capitalize",
                 }}
               >
@@ -69,37 +126,60 @@ export const Home = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={2}>
-            <Stack sx={{ paddingTop: "8.75rem" }}>
-              <Stack
+          <Grid
+            item
+            xs={12}
+            md={2}
+            sx={{ display: "flex", flexDirection: "column" }}
+          >
+            <Stack
+              sx={{
+                margin: { md: "8.75rem 0 0 0" },
+                background: "#ced4da",
+                borderRadius: { xs: "1rem", md: "2rem" },
+                alignItems: "center",
+                flexGrow: 1, // Set flex-grow property to 1
+                width: "100%",
+              }}
+            >
+              <ArrowDownwardRounded
                 sx={{
-                  background: "#ced4da",
-                  alignItems: "center",
-                  borderRadius: "2rem",
+                  paddingTop: "5rem ",
+                  transition: "transform 0.3s ease",
+                  transform: isArrowUp ? "translateY(-20%)" : "translateY(0)",
+                  fontSize: "130px",
                 }}
-              >
-                <ArrowDownwardRounded
-                  sx={{ paddingTop: "5rem ", fontSize: "130px" }}
-                />
-              </Stack>
+              />
             </Stack>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} md={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
                 background: "#000",
-                padding: "3rem 2rem 3rem 3rem",
-                borderTopLeftRadius: "2rem",
+                padding: {
+                  xs: "1rem 1.4rem 2rem 2rem",
+                  md: "2.25rem 1.5rem 2.25rem 2.25rem",
+                  lg: "3rem 2rem 3rem 3rem",
+                },
+                borderTopLeftRadius: { xs: "1rem", md: "2rem" },
               }}
             >
               <Typography
-                sx={{ fontSize: "30px", paddingBottom: "1rem", color: "#fff" }}
+                sx={{
+                  fontSize: { xs: "25px", md: "30px" },
+                  paddingBottom: { xs: "0.7rem", md: "1rem" },
+                  color: "#fff",
+                }}
               >
                 Welcome
               </Typography>
               <Typography
-                sx={{ width: "80%", paddingBottom: "2rem", color: "#fff" }}
+                sx={{
+                  width: { xs: "90%", md: "85%", lg: "85%" },
+                  paddingBottom: { xs: "1rem", md: "2rem" },
+                  color: "#fff",
+                }}
               >
                 Welcome to Worldview Training and Consulting Service PLC, your
                 trusted partner in driving organizational excellence and
@@ -108,9 +188,12 @@ export const Home = () => {
               <Button
                 sx={{
                   border: "solid 2px white",
-                  width: "50%",
+                  width: { xs: "50%", md: "90%", lg: "70%" },
+                  borderRadius: {
+                    xs: "1rem 1rem 1rem 0rem",
+                    md: "1.5rem 1.5rem 1.5rem 0rem",
+                  },
                   color: "#fff",
-                  borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
                   textTransform: "capitalize",
                 }}
               >
@@ -121,40 +204,58 @@ export const Home = () => {
         </Grid>
       </Stack>
 
-      <Stack paddingBottom={"4rem"}>
-        <Grid container spacing={"1rem"}>
-          <Grid item xs={12} sm={6} md={3}>
+      <Stack
+        sx={{
+          padding: {
+            xs: "0rem 1.25rem 1rem 1.25rem",
+            sm: "0rem 1.5rem 1.2rem 1.5rem",
+            md: "0rem 0rem 1.35rem 0rem",
+            lg: "0rem 0rem 1.5rem 0rem",
+            el: "0rem 0rem 1.5rem 0rem",
+          },
+        }}
+      >
+        <Grid container spacing={{ xs: "0.6rem", md: "1rem" }}>
+          <Grid item xs={12} md={4}>
             <img
               src={Businesses}
               style={{
                 borderRadius: "0rem 2rem 2rem 0rem",
                 width: "100%",
-                height: "70%",
+                height: "280px",
               }}
               alt="businesses"
             />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} md={5}>
             <Stack
               sx={{
                 background: "#000",
-                padding: "3rem 2rem 3rem 3rem",
-                borderRadius: "2rem",
-                minHeight: "15.5rem",
+                padding: {
+                  xs: "1.65rem 1rem 1.25rem 1.25rem",
+                  sm: "2rem 1.25rem 1.5rem 1.5rem",
+                  md: "2.5rem 1.5rem 2rem 2rem",
+                  lg: "3rem 2rem 3rem 3rem",
+                },
+                borderRadius: { xs: "1rem", md: "2rem" },
               }}
             >
               <Typography
                 sx={{
-                  fontSize: "30px",
-                  paddingBottom: "1rem",
+                  fontSize: { xs: "23px", sm: "25px", md: "27px", lg: "30px" },
+                  paddingBottom: { xs: "0.7rem", md: "1rem" },
                   color: "#89fc00",
                 }}
               >
                 Training Services
               </Typography>
               <Typography
-                sx={{ width: "80%", paddingBottom: "2rem", color: "#89fc00" }}
+                sx={{
+                  width: { xs: "90%", sm: "80%", md: "90%", lg: "80%" },
+                  paddingBottom: "2rem",
+                  color: "#89fc00",
+                }}
               >
                 The company provides regular and tailored training programs in
                 different topics such as Training of Trainers (TOT), Consultancy
@@ -179,12 +280,12 @@ export const Home = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} md={3}>
             <Stack
               sx={{
                 alignItems: "center",
                 background: "#89fc00",
-                borderRadius: "2rem",
+                borderRadius: { xs: "1rem", md: "2rem" },
                 padding: "5rem 2rem 5rem 2rem",
               }}
             >
@@ -193,23 +294,51 @@ export const Home = () => {
           </Grid>
         </Grid>
       </Stack>
+
       <Stack
         sx={{
           background: "#fff",
-          borderRadius: "2rem 2rem 0rem 0rem",
-          padding: "9rem 3rem 2rem 4rem",
+          borderRadius: {
+            xs: "1rem 1rem 0rem 0rem",
+            md: "2rem 2rem 0rem 0rem",
+          },
+          padding: {
+            xs: "2rem 3rem 0.8rem 2rem",
+            sm: "3rem 3rem 1rem 2.5rem",
+            md: "5rem 3rem 1.5rem 3rem",
+            lg: "7rem 3rem 2rem 4rem",
+          },
         }}
       >
-        <Typography sx={{ fontSize: "30px" }}>
+        <Typography sx={{ fontSize: { xs: "25px", md: "30px" } }}>
           The story of Worldview
         </Typography>
-        <Stack sx={{ padding: "8rem 16rem 4rem 16rem" }}>
-          <Typography sx={{ alignItems: "center", fontSize: "65px" }}>
+        <Stack
+          sx={{
+            padding: {
+              xs: "1.5rem 1rem 0.8rem 0rem",
+              sm: "2rem 1.5rem 2.5rem 0rem",
+              md: "3rem 8rem 3rem 8rem",
+              lg: "4rem 12rem 3.5rem 12rem",
+              el: "5rem 16rem 4rem 16rem",
+            },
+          }}
+        >
+          <Typography
+            sx={{
+              alignItems: "center",
+              fontSize: { xs: "40px", sm: "45px", md: "50px", lg: "65px" },
+            }}
+          >
             Isn't it time for your business to reach its apex? Your greatest
             success is just around the corner.
           </Typography>
           <Typography
-            sx={{ width: "80%", paddingTop: "2rem", paddingBottom: "2rem" }}
+            sx={{
+              width: { xs: "100%", md: "80%" },
+              paddingTop: { xs: "1rem", md: "2rem" },
+              paddingBottom: { xs: "1rem", md: "2rem" },
+            }}
           >
             Worldview Training and Consulting Service PLC, located in Addis
             Ababa, Ethiopia, is your inspiring partner for business growth and
@@ -234,21 +363,40 @@ export const Home = () => {
           </Button>
         </Stack>
 
-        <Stack sx={{ padding: "2rem 0rem 4rem 0rem" }}>
+        <Stack
+          sx={{
+            padding: { xs: "1rem 0rem 2rem 0rem", md: "2rem 0rem 4rem 0rem" },
+          }}
+        >
           <Typography sx={{ fontSize: "30px" }}>Industries</Typography>
         </Stack>
 
         <Grid
           container
-          spacing={"1rem"}
-          paddingTop={"1rem"}
-          paddingLeft={"8rem"}
+          spacing={{ xs: "0.5rem", md: "1rem" }}
+          paddingTop={{ xs: "0.5rem", md: "1rem" }}
+          paddingLeft={{
+            xs: "2rem",
+            sm: "3rem",
+            md: "4rem",
+            lg: "6rem",
+            xl: "8rem",
+          }}
+          alignItems="stretch"
+          sx={{
+            height: "100%",
+          }}
         >
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
                 background: "#E8EAED",
-                padding: "4rem 3rem 6rem 3rem",
+                padding: {
+                  xs: "3rem 1.6rem 3.5rem 1.6rem",
+                  sm: "4rem 2.5rem 5rem 2.5rem",
+                  md: "3.5rem 2.5rem 4rem 2.5rem",
+                  lg: "4rem 3rem 6rem 3rem",
+                },
                 borderRadius: "2rem",
               }}
             >
@@ -275,11 +423,16 @@ export const Home = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
                 background: "#89fc00",
-                padding: "4rem 3rem 6rem 3rem",
+                padding: {
+                  xs: "3rem 1.6rem 3.5rem 1.6rem",
+                  sm: "4rem 2.5rem 5rem 2.5rem",
+                  md: "3.5rem 2.5rem 4rem 2.5rem",
+                  lg: "4rem 3rem 6rem 3rem",
+                },
                 borderRadius: "2rem",
               }}
             >
@@ -306,11 +459,16 @@ export const Home = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
                 background: "#E8EAED",
-                padding: "4rem 3rem 6rem 3rem",
+                padding: {
+                  xs: "3rem 1.6rem 3.5rem 1.6rem",
+                  sm: "4rem 2.5rem 5rem 2.5rem",
+                  md: "3.5rem 2.5rem 4rem 2.5rem",
+                  lg: "4rem 3rem 6rem 3rem",
+                },
                 borderRadius: "2rem",
               }}
             >
@@ -336,12 +494,17 @@ export const Home = () => {
               </Typography>
             </Stack>
           </Grid>
-          <Grid item md={4}></Grid>
-          <Grid item xs={12} sm={6} md={4}>
+
+          <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#E8EAED",
-                padding: "3rem",
+                background: "#89fc00",
+                padding: {
+                  xs: "3rem 1.6rem 3.5rem 1.6rem",
+                  sm: "4rem 2.5rem 5rem 2.5rem",
+                  md: "3.5rem 2.5rem 4rem 2.5rem",
+                  lg: "4rem 3rem 6rem 3rem",
+                },
                 borderRadius: "2rem",
               }}
             >
@@ -370,11 +533,11 @@ export const Home = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#89fc00",
                 padding: "3rem",
+                background: "#E8EAED",
                 borderRadius: "2rem",
               }}
             >
@@ -404,52 +567,18 @@ export const Home = () => {
         </Grid>
       </Stack>
 
-      <Stack alignItems={"center"} sx={{ background: "#89fc00" }}>
-        <Stack direction={"row"} sx={{ paddingTop: "4rem" }}>
+      <Stack>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          alignItems={"center"}
+          sx={{ padding: { xs: "1rem", sm: "1.6rem", md: "2rem", lg: "3rem" } }}
+        >
           <Stack
             sx={{
-              padding: "10rem 10rem 10rem 10rem",
-              background: "#000",
-              borderTopLeftRadius: "2rem",
+              alignItems: "center",
+              width: "50%",
+              padding: { xs: "5rem", sm: "6rem", md: "7rem", lg: "8rem" },
             }}
-          >
-            <Box sx={{ position: "relative", textAlign: "center" }}>
-              <AcUnit sx={{ color: "#495057", fontSize: "235px" }} />
-              <Typography
-                sx={{
-                  color: "#fff",
-                  fontSize: "34px",
-                  fontWeight: "bold",
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  zIndex: 1,
-                }}
-              >
-                Our Solutions
-              </Typography>
-            </Box>
-          </Stack>
-
-          <Stack>
-            <img
-              src={dame}
-              alt="ethiopian dame"
-              style={{
-                height: "100%",
-                width: "100%",
-                borderTopRightRadius: "2rem",
-              }}
-            />
-          </Stack>
-        </Stack>
-      </Stack>
-
-      <Stack>
-        <Stack direction={"row"} sx={{ padding: "3rem" }}>
-          <Stack
-            sx={{ alignItems: "center", width: "50%", padding: "8rem" }}
             spacing={"1.5rem"}
           >
             <Handshake />
@@ -467,10 +596,10 @@ export const Home = () => {
               alignItems: "center",
               width: "50%",
               background: "#fff",
-              padding: "8rem",
-              borderTopRightRadius: "2rem",
+              padding: { xs: "5rem", sm: "6rem", md: "7rem", lg: "8rem" },
+              borderRadius: { xs: "2rem 2rem 2rem 2rem", md: "0 2rem 0 0" },
             }}
-            spacing={"1.5rem"}
+            spacing={{ xs: "0.9rem", sm: "1rem", md: "1.5rem" }}
           >
             <Build />
             <Typography sx={{ fontSize: "30px" }}>Execution</Typography>
@@ -485,61 +614,92 @@ export const Home = () => {
         </Stack>
       </Stack>
 
-      <Stack direction={"row"} padding={"0rem 4rem 0rem 4rem"}>
-        <Stack>
-          <img
-            style={{ borderTopLeftRadius: "2rem", width: '100%', height: '100%' }}
-            src={success}
-            alt="success"
-          />
-        </Stack>
-        <Stack
+      <Stack
+        sx={{
+          alignItems: "center",
+          background: "#89fc00",
+          padding: {
+            xs: "2rem 2.5rem 2.5rem 2.5rem",
+            sm: "2.5rem 3rem 3rem 3rem",
+            md: "3rem 4rem 4rem 4rem",
+            lg: "4rem 6rem 5rem 6rem",
+          },
+        }}
+      >
+        <Typography
+          textAlign={"center"}
           sx={{
-            background: "#000814",
-            padding: "5rem 2rem 3rem 3rem",
-            borderTopRightRadius: "2rem",
-            minHeight: "15.5rem",
+            fontWeight: "bold",
+            fontSize: { xs: "20px", sm: "25px", md: "30px", lg: "35px" },
+            paddingBottom: "2rem",
           }}
-          alignItems={"center"}
-          spacing={"2rem"}
         >
-          <TipsAndUpdates style={{ color: "#fff" }} />
-          <Typography
-            sx={{
-              fontSize: "30px",
-              color: "#fff",
-            }}
-          >
-            Data Advisory
-          </Typography>
-          <Typography
-            sx={{
-              width: "80%",
-              color: "#fff",
-              textAlign: "center",
-            }}
-          >
-            As a trusted Data Advisory partner, Worldview Training and
-            Consulting Service PLC leverages its expertise and industry
-            knowledge to provide comprehensive guidance and strategic
-            recommendations to organizations. With a deep understanding of data
-            management, analytics, and emerging technologies, Worldview assists
-            clients in harnessing the power of data to drive business
-            transformation.
-          </Typography>
-          <Button
-            sx={{
-              border: "solid 2px #89fc00",
-              width: "50%",
-              color: "#89fc00",
-              borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
-              textTransform: "capitalize",
-            }}
-          >
-            Check out solutions
-          </Button>
-        </Stack>
+          “Our end-to-end experience with AllenComm has been best in class. We
+          developed a great collaboration built on trust and confidence in
+          AllenComm’s ability to adapt and be responsive to the needs of the
+          business. I view Kraft Heinz’s collaboration with AllenComm as a true
+          strategic partnership”{" "}
+        </Typography>
+        <Typography>Kraft Heinz</Typography>
       </Stack>
+
+      <Grid
+        container
+        spacing={{ xs: 1, md: 0 }}
+        sx={{
+          padding: {
+            xs: "1.5rem 1rem 0rem 1rem",
+            sm: "1.75rem 2rem 0rem 2rem",
+            md: "2rem 2.5rem 0rem 2.5rem",
+            lg: "2.5rem 3rem 0rem 3rem",
+          },
+        }}
+      >
+        <Grid item xs={12} md={6}>
+          <Paper sx={gridItem}>
+            <img src={success} style={image} alt="success" />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Paper sx={gridItem} padding={'2rem'}>
+            <TipsAndUpdates style={{ color: "#fff" }} />
+            <Typography
+              sx={{
+                fontSize: "30px",
+                color: "#fff",
+              }}
+            >
+              Data Advisory
+            </Typography>
+            <Typography
+              sx={{
+                width: "80%",
+                color: "#fff",
+                textAlign: "center",
+              }}
+            >
+              As a trusted Data Advisory partner, Worldview Training and
+              Consulting Service PLC leverages its expertise and industry
+              knowledge to provide comprehensive guidance and strategic
+              recommendations to organizations. With a deep understanding of
+              data management, analytics, and emerging technologies, Worldview
+              assists clients in harnessing the power of data to drive business
+              transformation.
+            </Typography>
+            <Button
+              sx={{
+                border: "solid 2px #89fc00",
+                width: "50%",
+                color: "#89fc00",
+                borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
+                textTransform: "capitalize",
+              }}
+            >
+              Check out solutions
+            </Button>
+          </Paper>
+        </Grid>
+      </Grid>
 
       <Stack
         sx={{ background: "#212529", borderRadius: "2rem 2rem 0rem 0rem" }}
@@ -548,7 +708,7 @@ export const Home = () => {
           sx={{
             margin: "5rem 0rem 3.5rem 3.5rem",
             color: "#fff",
-            width: "20%",
+            width: {xs: '100%', lg: "20%"},
           }}
         >
           <Typography sx={{ fontSize: "38px", paddingBottom: "1rem" }}>
@@ -563,7 +723,7 @@ export const Home = () => {
         </Stack>
 
         <Stack>
-          <Grid container spacing={"1rem"} padding={"3rem 3rem 3rem 15rem"}>
+          <Grid container spacing={"1rem"} padding={{xs: "1rem", sm: "1.5rem 2rem 2rem 2rem", md: "3rem 3rem 3rem 6rem", lg: '3.5rem 3.5rem 3.5rem 10rem'}}>
             <Grid item xs={12} sm={6} md={4}>
               <Stack
                 sx={{
@@ -642,7 +802,7 @@ export const Home = () => {
         spacing={"3rem"}
       >
         <Typography sx={{ fontSize: "35px" }}>Our Clients</Typography>
-        <Grid container>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
               sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}

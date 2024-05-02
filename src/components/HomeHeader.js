@@ -9,6 +9,21 @@ function HomeHeader() {
   const [scrolling, setScrolling] = useState(false);
   const [openClose, setOpenClose] = useState(false);
   const handlOpenClose = () => setOpenClose(!openClose);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const adjustedViewportWidth = viewportWidth - (window.innerWidth - document.documentElement.clientWidth);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +42,15 @@ function HomeHeader() {
 
   const stackstyle = {
     justifyContent: "space-between",
-    background: "rgba(0, 0, 0, 0.65)",
-    position: { xs: "relative", md: "fixed" },
+    background: {
+      xs: openClose ? "#e8eaed" : "rgba(0, 0, 0, 0.85)",
+      md: "rgba(0, 0, 0, 0.65)",
+    },
+    position: { xs: "block", md: "fixed" },
     top: "0",
     left: "0",
-    width: "100%",
+    width: `calc(${adjustedViewportWidth}px)`,
+    boxSizing: 'border-box',
     color: "#fff",
     fontWeight: "bold",
     textTransform: "uppercase",
@@ -52,7 +71,7 @@ function HomeHeader() {
       },
     },
     "& a": {
-      color: "#fff",
+      color: { xs: openClose ? "#000" : "#fff", md: "#fff" },
       textDecoration: "none",
       padding: {
         xs: "0.2rem 0.7rem 0.2rem 0.7rem",
@@ -70,12 +89,15 @@ function HomeHeader() {
       color: "#ff4800",
     },
     "& svg": {
-      color: "#fff",
+      color: { xs: openClose ? "#000" : "#fff", md: "#fff" },
+      ...(scrolling && {
+        color: "#000",
+      }),
     },
   };
 
   return (
-    <Stack>
+    <Stack spacing={"0.3rem"}>
       <Stack direction={"row"} sx={stackstyle}>
         <Stack
           direction={"row"}
@@ -96,15 +118,15 @@ function HomeHeader() {
                 style={{
                   width: "28%",
                   height: "100%",
-                  // transform: "perspective(500px) rotateX(30deg) rotateY(30deg)",
-                  // boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)",
-                  // animation: "spin 4s linear infinite",
+                  transform: "perspective(500px) rotateX(30deg) rotateY(30deg)",
+                  boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)",
+                  animation: "spin 4s linear infinite",
                 }}
                 alt="world view"
               />
-              {/* {
-              <style>
-                {`
+              {
+                <style>
+                  {`
                     @keyframes spin {
                       0% {
                         transform: perspective(500px) rotateX(0deg) rotateY(0deg);
@@ -114,8 +136,8 @@ function HomeHeader() {
                       }
                     }
                   `}
-              </style>
-            } */}
+                </style>
+              }
               <Box>
                 <Typography
                   sx={{
@@ -204,6 +226,7 @@ function HomeHeader() {
             background: "#fff",
             zIndex: 999,
             paddingBottom: "3rem",
+            paddingTop: "0.8rem",
             "& a": {
               color: "#000",
               textDecoration: "none",
@@ -211,7 +234,7 @@ function HomeHeader() {
             "& a:hover": {
               color: "#ff4800",
             },
-            '& a.uniqueIcon': {
+            "& a.uniqueIcon": {
               padding: "0.3rem 1rem 0.4 2rem",
               margin: "0.5rem 2rem 0.1rem 2rem",
               fontSize: { xs: "1.5rem", sm: "1.7rem" },

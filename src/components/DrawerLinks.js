@@ -22,18 +22,8 @@ function Drawer() {
   const handleMouseLeave2 = () => setIsVisible2(false);
   const handleMouseEnter21 = () => setIsVisible21(true);
   const handleMouseLeave21 = () => setIsVisible21(false);
-  const handlIsClicked1 = () => {
-    setIsclicked1(!isclicked1);
-    if (isVisible2) {
-      setIsVisible2(!isVisible2);
-    }
-  };
-  const handlIsClicked2 = () => {
-    setIsclicked2(!isclicked2);
-    if (isVisible1) {
-      setIsclicked1(!isclicked1);
-    }
-  };
+  const handlIsClicked1 = () => setIsclicked1(!isclicked1)
+  const handlIsClicked2 = () => setIsclicked2(!isclicked2)
 
   const textstyle1 = {
     fontSize: {
@@ -346,7 +336,7 @@ function Drawer() {
         </Stack>
       </Stack>
 
-      <Stack width={"25%"}>
+      <Stack width={{xs: "100%", md: '25%'}}>
         <Link className="uniqueIcon">Contact</Link>
       </Stack>
     </Stack>

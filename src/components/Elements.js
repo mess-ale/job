@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 function Elements({ imageUrl, title, num }) {
   const buttonStyle = {
-    margin: "0rem 3rem 0rem 5rem",
+    margin: {xs: "0rem 0.8rem 0rem 1rem", sm: "0rem 1.1rem 0rem 2rem", md: "0rem 2rem 0rem 3.5rem", lg: "0rem 3rem 0rem 5rem"},
     color: "#fff",
-    paddingTop: "1rem",
+    paddingTop: {xs: "0.6rem", sm: "0.7rem", md: "0.8rem", lg: "1rem"},
     textTransform: "capitalize",
     "&:hover": {
       boxShadow: "0px -3px 0px #89fc00",
@@ -25,11 +25,15 @@ function Elements({ imageUrl, title, num }) {
   return (
     <Stack sx={stackstyle}>
       <Stack direction={"row"}>
-        <Stack width={"45%"} marginLeft={"10rem"} paddingTop={"10rem"}>
+        <Stack
+          width={{ xs: "75%", md: "70%", lg: "65%", xl: "60%" }}
+          marginLeft={{ xs: "4rem", sm: "6rem", md: "8rem" }}
+          paddingTop={{xs: '7rem', sm: '8.5rem', md: "10rem"}}
+        >
           <Typography
             sx={{
               color: "#fff",
-              fontSize: { xs: "2rem", sm: "2.5rem", md: "4rem" },
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem", lg: "4rem" },
               fontFamily: "Young Serif",
               paddingBottom: "3rem",
             }}
@@ -45,15 +49,16 @@ function Elements({ imageUrl, title, num }) {
             <Button
               sx={{
                 border: "solid 3px #fff",
-                width: "40%",
+                width: {xs: '60%', sm: '50%', md: '40%', lg: "30%"},
                 color: "#fff",
-                borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
+                borderRadius: {xs: "1rem 1rem 1rem 0rem", md: "1.5rem 1.5rem 1.5rem 0rem"},
                 textTransform: "capitalize",
                 fontWeight: "bold",
                 "&:hover": {
                   background: "#fff",
                   color: "#89fc00",
                 },
+                fontSize: {xs: 'small', sm: 'medium', md: 'large'}
               }}
               endIcon={<ArrowForward />}
             >
@@ -62,7 +67,8 @@ function Elements({ imageUrl, title, num }) {
           </Link>
         </Stack>
       </Stack>
-      <Stack direction={"row"} sx={{ paddingTop: "6.5rem" }}>
+
+      <Stack direction={"row"} sx={{ position: 'absolute', bottom: '40px' }}>
         <Button
           style={
             num === 0

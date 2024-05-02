@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import Elements from './Elements';
-import Ele1 from '../assets/Element_1.png';
-import Ele2 from '../assets/Element_2.png';
-import Ele3 from '../assets/Elemnet_3.png';
-import Ele4 from '../assets/element_4.png';
+import Ele1 from '../assets/slide_1.png'
+import Ele2 from '../assets/slide_2.png';
+import Ele3 from '../assets/slide_3.png';
+import Ele4 from '../assets/slide_4.png';
 
 const SwitchingStacks = () => {
   const [currentElementIndex, setCurrentElementIndex] = useState(0);
@@ -18,7 +18,7 @@ const SwitchingStacks = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentElementIndex((prevIndex) => (prevIndex + 1) % elements.length);
-    }, 10000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [elements.length]);
@@ -26,7 +26,6 @@ const SwitchingStacks = () => {
   return (
     <Box
       sx={{
-        fontSize: '24px',
         fontWeight: 'bold',
         color: 'primary.main',
         paddingBottom: '100vh',
