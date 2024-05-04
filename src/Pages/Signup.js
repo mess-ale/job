@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Footer } from "../components/Footer.js";
-import { Stack, Typography, Input, Button, Container } from "@mui/material";
+import { Stack, Typography, Input, Button, Grid } from "@mui/material";
 import HomeHeader from "../components/HomeHeader.js";
-import logsignimg from "../assets/better.jpg";
+import logsignimg from "../assets/slide_2.png";
 import LoginIcon from "@mui/icons-material/Login";
-import HamburgerHome from "../components/HamburgerHome.js";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -52,12 +51,13 @@ function SignUp() {
 
   const sxinput = {
     fontSize: {
-      xs: "0.7rem",
-      sm: "0.8rem",
-      md: "0.9rem",
-      lg: "1rem",
+      xs: "0.9rem",
+      sm: "1rem",
+      md: "1.1rem",
+      lg: "1.2rem",
     },
-    fontFamily: 'Outfit'
+    fontFamily: "Outfit",
+    width: '70%'
   };
 
   const styleinput = {
@@ -65,7 +65,7 @@ function SignUp() {
     borderRadius: "0.25rem",
     paddingLeft: "1rem",
     backgroundColor: "#fff",
-    width: "65%",
+
   };
 
   return (
@@ -81,209 +81,171 @@ function SignUp() {
           marginBottom: { sm: "0rem", md: "7rem" },
         }}
       >
-        <Stack
-          sx={{
-            display: {
-              xs: "flex",
-              sm: "flex",
-              md: "none",
-            },
-          }}
-        >
-          <HamburgerHome />
-        </Stack>
-        <Stack
-          sx={{
-            display: {
-              xs: "none",
-              sm: "none",
-              md: "flex",
-            },
-          }}
-        >
-          <HomeHeader />
-        </Stack>
+        <HomeHeader />
       </Stack>
 
-      <Container>
-        <Stack
-          direction={{ sm: "column", md: "row" }}
-          spacing={{ xs: "4rem", sm: "3rem", md: "1rem", lg: "2rem" }}
-        >
-          <Stack
+      <Grid
+        container
+        sx={{
+          padding: {
+            xs: "1rem 1rem 2rem 1rem",
+            sm: "2rem 2rem 2.5rem 2rem",
+            md: "1.5rem 6rem 3rem 6rem",
+            lg: "1rem 10rem 4rem 10rem",
+          },
+        }}
+        spacing={{ xs: "2rem", sm: "3rem", md: "4rem", lg: "6rem" }}
+        alignItems={{ sm: "center" }}
+      >
+        <Grid item xs={12} sm={6}>
+          <Typography
             sx={{
-              width: { xs: "100%" },
+              color: "#000",
+              fontWeight: "bold",
+              textAlign: { xs: "center", md: "left" },
+              fontSize: {
+                xs: "2rem",
+                sm: "2.1rem",
+                md: "2.65rem",
+                lg: "3rem",
+              },
+              textTransform: "uppercase",
+              fontFamily: "Young Serif",
+              paddingBottom: "2rem",
             }}
           >
-            <Stack>
-              <Typography
-                sx={{
-                  padding: {
-                    xs: "0rem 0rem 1.5rem 0rem",
-                    sm: "1rem 0rem 1.5rem 0rem",
-                    md: "5rem 0rem 1.5rem 0rem",
-                    lg: "6rem 0rem 1.5rem 0rem",
-                  },
-                  color: "#7FD1AE",
-                  fontWeight: "bold",
-                  textAlign: { xs: "center", md: "left" },
-                  fontSize: {
-                    xs: "2rem",
-                    sm: "2.25rem",
-                    md: "2.7rem",
-                    lg: "3rem",
-                  },
-                  textTransform: "uppercase",
-                  fontFamily: 'Young Serif'
-                }}
-              >
-                DermAI
-              </Typography>
+          Worldview
+          </Typography>
 
-              <Typography
-                sx={{
-                  textAlign: "justify",
-                  fontSize: {
-                    xs: "0.9rem",
-                    sm: "1.15rem",
-                    md: "1.3rem",
-                    lg: "1.55rem",
-                  },
-                fontFamily: 'Outfit'
-                }}
-              >
-                <span
-                  style={{
-                    color: "#00C6CF",
-                    fontWeight: "bold",
-                  }}
-                >
-                  DermAI
-                </span>{" "}
-                uses powerful AI to analyze your skin and help you make informed
-                decisions about your health journey
-              </Typography>
-            </Stack>
-          </Stack>
-
-          <Stack
-            width={"100%"}
+          <Typography
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              textAlign: "justify",
+              fontSize: {
+                xs: "1.1rem",
+                sm: "1rem",
+                md: "1.32rem",
+                lg: "1.55rem",
+              },
+              fontFamily: "Outfit",
             }}
           >
-            <Stack
-              sx={{
-                backgroundImage: `url(${logsignimg})`,
-                borderRadius: "1rem",
-                width: { xs: "20rem", sm: "26rem" },
+            <span
+              style={{
+                color: "#00C6CF",
+                fontWeight: "bold",
               }}
             >
-              <form onSubmit={handleSubmit}>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    padding: {
-                      xs: "1.2rem",
-                      sm: "1.5rem",
-                      md: "1.75rem",
-                      lg: "2rem",
-                    },
-                    fontSize: {
-                      xs: "1rem",
-                      sm: "1.25rem",
-                      md: "1.5rem",
-                    },
-                    color: "#00C6CF",
-                    fontWeight: "bold",
-                    textTransform: "uppercase",
-                    fontFamily: 'Young Serif'
-                  }}
-                >
-                  Create Account
+            Worldview
+            </span>{" "}
+            Create your Worldview Training and Consulting Service PLC account (:
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <Stack
+            sx={{
+              backgroundImage: `url(${logsignimg})`,
+              borderRadius: "1rem",
+            }}
+          >
+            <form onSubmit={handleSubmit}>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  padding: '1rem 0 2rem 0',
+                  fontSize: {
+                    xs: "1.2rem",
+                    sm: "1rem",
+                    md: "1.25rem",
+                    lg: '1.5rem'
+                  },
+                  color: "#fff",
+                  fontWeight: "bold",
+                  textTransform: "uppercase",
+                  fontFamily: "Young Serif",
+                }}
+              >
+                Create Account
+              </Typography>
+              <Stack
+                spacing={{
+                  xs: "1rem",
+                  sm: "1.5rem",
+                  md: "2rem",
+                }}
+                sx={{ alignItems: "center" }}
+              >
+                <Input
+                  type="text"
+                  placeholder="Your Name"
+                  value={name}
+                  required
+                  error={nameError}
+                  onChange={(e) => setName(e.target.value)}
+                  sx={sxinput}
+                  style={styleinput}
+                />
+                <Input
+                  type="email"
+                  placeholder="Your Email"
+                  value={email}
+                  required
+                  error={emailError}
+                  onChange={(e) => setEmail(e.target.value)}
+                  sx={sxinput}
+                  style={styleinput}
+                />
+
+                <Input
+                  type="password"
+                  required
+                  error={passwordError}
+                  placeholder="Your Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  sx={sxinput}
+                  style={styleinput}
+                />
+                <Input
+                  type="password"
+                  required
+                  error={rePasswordError}
+                  placeholder="Repeat Your Password"
+                  value={rePassword}
+                  onChange={(e) => setRePassword(e.target.value)}
+                  sx={sxinput}
+                  style={styleinput}
+                />
+                <Typography sx={{ color: "red" }}>
+                  {password !== rePassword && "password do not match"}
                 </Typography>
-                <Stack
-                  spacing={{
-                    xs: "1rem",
-                    sm: "1.5rem",
-                    md: "2rem",
-                  }}
-                  sx={{ alignItems: "center" }}
-                >
-                  <Input
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    required
-                    error={nameError}
-                    onChange={(e) => setName(e.target.value)}
-                    sx={sxinput}
-                    style={styleinput}
-                  />
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    value={email}
-                    required
-                    error={emailError}
-                    onChange={(e) => setEmail(e.target.value)}
-                    sx={sxinput}
-                    style={styleinput}
-                  />
 
-                  <Input
-                    type="password"
-                    required
-                    error={passwordError}
-                    placeholder="Your Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    sx={sxinput}
-                    style={styleinput}
-                  />
-                  <Input
-                    type="password"
-                    required
-                    error={rePasswordError}
-                    placeholder="Repeat Your Password"
-                    value={rePassword}
-                    onChange={(e) => setRePassword(e.target.value)}
-                    sx={sxinput}
-                    style={styleinput}
-                  />
-                  <Typography sx={{ color: "red" }}>
-                    {password !== rePassword && "password do not match"}
-                  </Typography>
+                <Stack>
+                  <Button
+                    type="submit"
+                    endIcon={<LoginIcon />}
+                    sx={{
+                      color: "#333",
+                      padding: "0.3rem 2rem",
+                      marginBottom: "4rem",
+                      borderRadius: "5px",
+                      backgroundImage:
+                        "linear-gradient(to right, #7FD1AE, #00C6CF)",
 
-                  <Stack>
-                    <Button
-                      type="submit"
-                      endIcon={<LoginIcon />}
-                      sx={{
-                        color: "#333",
-                        padding: "0.3rem 2rem",
-                        marginBottom: "4rem",
-                        borderRadius: "5px",
-                        backgroundImage:
-                          "linear-gradient(to right, #7FD1AE, #00C6CF)",
-
-                        "&:hover": {
-                          backgroundColor: "#e0e0e0",
-                        },
-                        fontFamily: 'Young Serif'
-                      }}
-                    >
-                      Sign Up
-                    </Button>
-                  </Stack>
+                      "&:hover": {
+                        backgroundColor: "#e0e0e0",
+                      },
+                      fontFamily: "Young Serif",
+                    }}
+                  >
+                    Sign Up
+                  </Button>
                 </Stack>
-              </form>
-            </Stack>
+              </Stack>
+            </form>
           </Stack>
-        </Stack>
-      </Container>
+        </Grid>
+      </Grid>
 
       <Stack
         sx={{

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
-import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import {
   ArrowDownwardRounded,
@@ -20,14 +20,28 @@ export const Home = () => {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    background: "#000",
     height: "100%",
     width: "100%",
+    background: "#000",
+    borderRadius: { xs: "1rem 1rem 0 0", md: "2rem 0 0 0" },
+    "& img": {
+      borderRadius: { xs: "1rem 1rem 0 0", md: "2rem 0 0 0" },
+    },
+  };
+
+  const gridItem1 = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    height: "100%",
+    width: "100%",
+    background: "#000",
+    borderRadius: { xs: "0 0 1rem 1rem", md: "0 2rem 0 0" },
   };
   const image = {
     maxWidth: "100%",
     maxHeight: "100%",
-    borderRadius: { xs: "1rem 1rem 0 0", md: "1rem 0 0 0" },
     objectFit: "cover",
   };
   const [isArrowUp, setIsArrowUp] = useState(false);
@@ -48,6 +62,7 @@ export const Home = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        overflowX: 'hidden'
       }}
     >
       <Stack sx={{ position: "absolute" }}>
@@ -110,6 +125,7 @@ export const Home = () => {
                 development capabilities.
               </Typography>
               <Button
+              href="/contact"
                 sx={{
                   border: "solid 2px black",
                   width: { xs: "60%", sm: "50%", md: "70%", lg: "50%" },
@@ -186,6 +202,7 @@ export const Home = () => {
                 empowering individuals for success.excellence and empowering.
               </Typography>
               <Button
+              href="/blog"
                 sx={{
                   border: "solid 2px white",
                   width: { xs: "50%", md: "90%", lg: "70%" },
@@ -267,6 +284,7 @@ export const Home = () => {
                 Leadership
               </Typography>
               <Button
+              href="/Solutions"
                 sx={{
                   border: "solid 2px #89fc00",
                   width: "50%",
@@ -351,6 +369,7 @@ export const Home = () => {
             consultancy, and research services.
           </Typography>
           <Button
+          href="/about"
             sx={{
               border: "solid 2px black",
               width: "30%",
@@ -645,28 +664,28 @@ export const Home = () => {
 
       <Grid
         container
-        spacing={{ xs: 1, md: 0 }}
         sx={{
           padding: {
             xs: "1.5rem 1rem 0rem 1rem",
             sm: "1.75rem 2rem 0rem 2rem",
             md: "2rem 2.5rem 0rem 2.5rem",
-            lg: "2.5rem 3rem 0rem 3rem",
+            lg: "2.5rem 3rem rem 3rem",
           },
         }}
       >
         <Grid item xs={12} md={6}>
-          <Paper sx={gridItem}>
+          <Stack sx={gridItem}>
             <img src={success} style={image} alt="success" />
-          </Paper>
+          </Stack>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Paper sx={gridItem} padding={'2rem'}>
-            <TipsAndUpdates style={{ color: "#fff" }} />
+          <Stack sx={gridItem1}>
+            <TipsAndUpdates sx={{ color: "#fff", padding: {xs: "2rem 0 1rem 0", md: "2rem 0 2rem 0"} }} />
             <Typography
               sx={{
                 fontSize: "30px",
                 color: "#fff",
+                padding: "1rem 0 2rem 0",
               }}
             >
               Data Advisory
@@ -676,6 +695,7 @@ export const Home = () => {
                 width: "80%",
                 color: "#fff",
                 textAlign: "center",
+                padding: {xs: "0.5rem 0 1rem 0", md: "1rem 0 2rem 0"},
               }}
             >
               As a trusted Data Advisory partner, Worldview Training and
@@ -686,18 +706,20 @@ export const Home = () => {
               assists clients in harnessing the power of data to drive business
               transformation.
             </Typography>
-            <Button
-              sx={{
-                border: "solid 2px #89fc00",
-                width: "50%",
-                color: "#89fc00",
-                borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
-                textTransform: "capitalize",
-              }}
-            >
-              Check out solutions
-            </Button>
-          </Paper>
+            <Stack padding= {{xs: "0.5rem 0 3rem 0", md: "1rem 0 2rem 0"}}>
+              <Button
+              href="/Solutions"
+                sx={{
+                  border: "solid 2px #89fc00",
+                  color: "#89fc00",
+                  borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
+                  textTransform: "capitalize",
+                }}
+              >
+                Check out solutions
+              </Button>
+            </Stack>
+          </Stack>
         </Grid>
       </Grid>
 
@@ -708,7 +730,7 @@ export const Home = () => {
           sx={{
             margin: "5rem 0rem 3.5rem 3.5rem",
             color: "#fff",
-            width: {xs: '100%', lg: "20%"},
+            width: { xs: "100%", lg: "20%" },
           }}
         >
           <Typography sx={{ fontSize: "38px", paddingBottom: "1rem" }}>
@@ -723,7 +745,16 @@ export const Home = () => {
         </Stack>
 
         <Stack>
-          <Grid container spacing={"1rem"} padding={{xs: "1rem", sm: "1.5rem 2rem 2rem 2rem", md: "3rem 3rem 3rem 6rem", lg: '3.5rem 3.5rem 3.5rem 10rem'}}>
+          <Grid
+            container
+            spacing={"1rem"}
+            padding={{
+              xs: "1rem",
+              sm: "1.5rem 2rem 2rem 2rem",
+              md: "3rem 3rem 3rem 6rem",
+              lg: "3.5rem 3.5rem 3.5rem 10rem",
+            }}
+          >
             <Grid item xs={12} sm={6} md={4}>
               <Stack
                 sx={{

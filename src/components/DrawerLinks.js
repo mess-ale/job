@@ -1,11 +1,13 @@
-import { Box, Grid, Link, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import solution1 from "../assets/solutions (1).png";
 import solution2 from "../assets/solutions (2).png";
 import solution3 from "../assets/solutions (3).png";
 import solution4 from "../assets/solutions (4).png";
 import solution5 from "../assets/solutions (5).png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./Animation.css"; // Import the CSS file with animation styles
 import { KeyboardArrowDown } from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
 
 function Drawer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,16 +16,60 @@ function Drawer() {
   const [isVisible21, setIsVisible21] = useState(false);
   const [isclicked1, setIsclicked1] = useState(false);
   const [isclicked2, setIsclicked2] = useState(false);
-  const handleMouseEnter = () => setIsVisible(true);
-  const handleMouseLeave = () => setIsVisible(false);
-  const handleMouseEnter1 = () => setIsVisible1(true);
-  const handleMouseLeave1 = () => setIsVisible1(false);
-  const handleMouseEnter2 = () => setIsVisible2(true);
-  const handleMouseLeave2 = () => setIsVisible2(false);
-  const handleMouseEnter21 = () => setIsVisible21(true);
-  const handleMouseLeave21 = () => setIsVisible21(false);
-  const handlIsClicked1 = () => setIsclicked1(!isclicked1)
-  const handlIsClicked2 = () => setIsclicked2(!isclicked2)
+  const handlIsClicked1 = () => setIsclicked1(!isclicked1);
+  const handlIsClicked2 = () => setIsclicked2(!isclicked2);
+  const [isPageJustLoaded, setIsPageJustLoaded] = useState(true);
+  const loacation = useLocation();
+  useEffect(() => {
+    // When the component mounts, set the flag to false after a short delay
+    const timer = setTimeout(() => {
+      setIsPageJustLoaded(false);
+    }, 100); // 100ms delay
+
+    return () => clearTimeout(timer); // Cleanup the timer on unmount
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible(false);
+    }
+  };
+  const handleMouseEnter1 = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible1(true);
+    }
+  };
+  const handleMouseLeave1 = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible1(false);
+    }
+  };
+  const handleMouseEnter2 = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible2(true);
+    }
+  };
+  const handleMouseLeave2 = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible2(false);
+    }
+  };
+  const handleMouseEnter21 = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible21(true);
+    }
+  };
+  const handleMouseLeave21 = () => {
+    if (!isPageJustLoaded) {
+      setIsVisible21(false);
+    }
+  };
 
   const textstyle1 = {
     fontSize: {
@@ -32,7 +78,7 @@ function Drawer() {
     },
     textTransform: "capitalize",
     fontWeight: "bold",
-    paddingLeft: {xs: "2rem", md: '0'},
+    paddingLeft: { xs: "2rem", md: "0" },
   };
 
   const textstyle2 = {
@@ -42,13 +88,13 @@ function Drawer() {
       md: "0.7rem",
       lg: "1rem",
     },
-    paddingLeft: {xs: "2rem", md: '0'},
+    paddingLeft: { xs: "2rem", md: "0" },
     paddingBottom: "0.5rem",
   };
 
   const linkOneStyle = {
     textTransform: "capitalize",
-    paddingLeft: '3rem',
+    paddingLeft: "3rem",
     fontWeight: "bold",
   };
 
@@ -88,10 +134,18 @@ function Drawer() {
           <Link
             className="uniqueIcon"
             style={isVisible || isVisible1 ? { color: "#ff4800" } : {}}
+            to={"/Services"}
           >
             <Stack
               sx={{ justifyContent: "space-between", alignItems: "center" }}
               direction={"row"}
+              style={
+                loacation.pathname === "/Services"
+                  ? {
+                      color: "#ff4800",
+                    }
+                  : {}
+              }
             >
               Service
               <KeyboardArrowDown />
@@ -99,12 +153,12 @@ function Drawer() {
           </Link>
         </Stack>
         <Box
+          className={isVisible || isVisible1 ? "slide-in" : "slide-out"}
           sx={{
             position: { md: "fixed" },
             width: "100%",
             top: { md: "35px", lg: "37px" },
             right: 0, // Position at right edge
-            transition: "transform 0.4s ease-in-out", // Smooth transition
             backgroundColor: "#E8EAED", // Drawer background color
             display: {
               xs: isclicked1 ? "block" : "none",
@@ -164,12 +218,20 @@ function Drawer() {
           onMouseLeave={handleMouseLeave2}
         >
           <Link
+            to={"/Solutions"}
             className="uniqueIcon"
             style={isVisible2 || isVisible21 ? { color: "#ff4800" } : {}}
           >
             <Stack
               direction={"row"}
               sx={{ justifyContent: "space-between", alignItems: "center" }}
+              style={
+                loacation.pathname === "/Solutions"
+                  ? {
+                      color: "#ff4800",
+                    }
+                  : {}
+              }
             >
               Solution
               <KeyboardArrowDown />
@@ -177,12 +239,12 @@ function Drawer() {
           </Link>
         </Stack>
         <Box
+          className={isVisible2 || isVisible21 ? "slide-in" : "slide-out"}
           sx={{
             position: { md: "fixed" },
             top: { md: "32px", lg: "35px" },
             width: "100%",
             right: 0, // Position at right edge
-            transition: "transform 0.4s ease-in-out", // Smooth transition
             backgroundColor: "#E8EAED", // Drawer background color
             padding: "1rem", // Drawer content padding
             display: {
@@ -205,7 +267,7 @@ function Drawer() {
             <Grid container>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link>
+                  <Link to={'/solutions/LearningManagement'}>
                     <Stack
                       sx={{
                         display: { xs: "none", md: "block" },
@@ -233,7 +295,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link>
+                  <Link to={'/Solutions/LeadershipDevelopmentTraining'}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution2}
@@ -256,7 +318,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link>
+                  <Link to={'/Solutions/HealthAndSafetyTraining'}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution3}
@@ -279,7 +341,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link>
+                  <Link to={'/Solutions/EmployeeOnboarding'}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution4}
@@ -302,7 +364,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link>
+                  <Link to={'/Solutions/SalesAndServiceTraining'}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution5}
@@ -329,15 +391,43 @@ function Drawer() {
         </Box>
 
         <Stack>
-          <Link className="uniqueIcon">Blog</Link>
+          <Link
+            to={"/blog"}
+            style={
+              loacation.pathname === "/blog"
+                ? {
+                    color: "#ff4800",
+                  }
+                : {}
+            }
+            className="uniqueIcon"
+          >
+            Blog
+          </Link>
         </Stack>
-        <Stack>
-          <Link className="uniqueIcon">About</Link>
-        </Stack>
+        <Link to={"/about"} 
+              style={
+                loacation.pathname === "/about"
+                  ? {
+                      color: "#ff4800",
+                    }
+                  : {}
+              }className="uniqueIcon">
+          About
+        </Link>
       </Stack>
 
-      <Stack width={{xs: "100%", md: '25%'}}>
-        <Link className="uniqueIcon">Contact</Link>
+      <Stack width={{ xs: "100%", md: "25%" }}>
+        <Link to={"/contact"} 
+              style={
+                loacation.pathname === "/contact"
+                  ? {
+                      color: "#ff4800",
+                    }
+                  : {}
+              }className="uniqueIcon">
+          Contact
+        </Link>
       </Stack>
     </Stack>
   );

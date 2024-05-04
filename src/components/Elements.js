@@ -5,9 +5,14 @@ import { Link } from "react-router-dom";
 
 function Elements({ imageUrl, title, num }) {
   const buttonStyle = {
-    margin: {xs: "0rem 0.8rem 0rem 1rem", sm: "0rem 1.1rem 0rem 2rem", md: "0rem 2rem 0rem 3.5rem", lg: "0rem 3rem 0rem 5rem"},
+    margin: {
+      xs: "0rem 0rem 0rem 1rem",
+      sm: "0rem 0.8rem 0rem 2rem",
+      md: "0rem 1.5rem 0rem 3.5rem",
+      lg: "0rem 2rem 0rem 5rem",
+    },
     color: "#fff",
-    paddingTop: {xs: "0.6rem", sm: "0.7rem", md: "0.8rem", lg: "1rem"},
+    paddingTop: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem", lg: "1rem" },
     textTransform: "capitalize",
     "&:hover": {
       boxShadow: "0px -3px 0px #89fc00",
@@ -28,7 +33,7 @@ function Elements({ imageUrl, title, num }) {
         <Stack
           width={{ xs: "75%", md: "70%", lg: "65%", xl: "60%" }}
           marginLeft={{ xs: "4rem", sm: "6rem", md: "8rem" }}
-          paddingTop={{xs: '7rem', sm: '8.5rem', md: "10rem"}}
+          paddingTop={{ xs: "7rem", sm: "8.5rem", md: "10rem" }}
         >
           <Typography
             sx={{
@@ -40,25 +45,29 @@ function Elements({ imageUrl, title, num }) {
           >
             {title}
           </Typography>
-
+          
           <Link
             style={{
               textDecoration: "none",
             }}
+            to={'/about'}
           >
             <Button
               sx={{
                 border: "solid 3px #fff",
-                width: {xs: '60%', sm: '50%', md: '40%', lg: "30%"},
+                width: { xs: "60%", sm: "50%", md: "40%", lg: "30%" },
                 color: "#fff",
-                borderRadius: {xs: "1rem 1rem 1rem 0rem", md: "1.5rem 1.5rem 1.5rem 0rem"},
+                borderRadius: {
+                  xs: "1rem 1rem 1rem 0rem",
+                  md: "1.5rem 1.5rem 1.5rem 0rem",
+                },
                 textTransform: "capitalize",
                 fontWeight: "bold",
                 "&:hover": {
                   background: "#fff",
                   color: "#89fc00",
                 },
-                fontSize: {xs: 'small', sm: 'medium', md: 'large'}
+                fontSize: { xs: "small", sm: "medium", md: "large" },
               }}
               endIcon={<ArrowForward />}
             >
@@ -68,8 +77,9 @@ function Elements({ imageUrl, title, num }) {
         </Stack>
       </Stack>
 
-      <Stack direction={"row"} sx={{ position: 'absolute', bottom: '40px' }}>
+      <Stack direction={"row"} sx={{ position: "absolute", bottom: "40px" }}>
         <Button
+          href="/PerformanceConsulting"
           style={
             num === 0
               ? {
@@ -82,6 +92,7 @@ function Elements({ imageUrl, title, num }) {
           <Typography>Performance Consulting</Typography>
         </Button>
         <Button
+          href="/InstructionalDesign"
           style={
             num === 1
               ? {
@@ -94,6 +105,7 @@ function Elements({ imageUrl, title, num }) {
           <Typography>Instructional Design</Typography>
         </Button>
         <Button
+        href="/LearningTechnology"
           style={
             num === 2
               ? {
@@ -106,6 +118,7 @@ function Elements({ imageUrl, title, num }) {
           <Typography>Learning Technology</Typography>
         </Button>
         <Button
+        href="/SmartLNDStaffing"
           style={
             num === 3
               ? {

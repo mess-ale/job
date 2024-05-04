@@ -1,8 +1,8 @@
 import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/Rectangle 41 (1).png";
-import { Close, Menu } from "@mui/icons-material";
+import { Close, Login, Menu } from "@mui/icons-material";
 import Drawer from "./DrawerLinks";
 
 function HomeHeader() {
@@ -10,6 +10,7 @@ function HomeHeader() {
   const [openClose, setOpenClose] = useState(false);
   const handlOpenClose = () => setOpenClose(!openClose);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const loacation = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,6 +57,7 @@ function HomeHeader() {
     textTransform: "uppercase",
     ...(scrolling && {
       background: { md: "#E8EAED" },
+      transition: 'background-color 0.3s ease'
     }),
     zIndex: "310",
     height: { xs: "4.5rem", sm: "5rem", md: "5.5rem", lg: "6rem" },
@@ -63,6 +65,7 @@ function HomeHeader() {
     fontSize: { xs: "0.9rem", md: "0.9rem", lg: "1rem" },
     "&:hover": {
       background: "#E8EAED",
+      transition: 'background-color 0.3s ease-in-out',
       "& a": {
         color: "#000",
       },
@@ -111,7 +114,7 @@ function HomeHeader() {
             alignItems: "center",
           }}
         >
-          <Link>
+          <Link to={'/'}>
             <Stack direction="row" spacing="0.7rem">
               <img
                 src={logo}
@@ -149,6 +152,13 @@ function HomeHeader() {
                       md: "0.9rem",
                     },
                   }}
+                  style={
+                    loacation.pathname === "/"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
                 >
                   Worldview
                 </Typography>
@@ -188,16 +198,18 @@ function HomeHeader() {
           }}
         >
           <Button
+            href="/login"
+            endIcon={<Login style={{color: "#000"}}/>}
+            style={{ color: '#000', "&:hover":{color: '#89fc00'}}}
             sx={{
               border: "solid 2px black",
               borderRadius: {
-                sm: "1rem 1rem 1rem 0rem",
-                md: "1.25rem 1.25rem 1.25rem 0rem",
-                lg: "1.5rem 1.5rem 1.5rem 0rem",
+                sm: "0.7rem 0.7rem 0.7rem 0rem",
+                md: "0.8rem 0.8rem 0.8rem 0rem",
+                lg: "1rem 1rem 1rem 0rem",
               },
               textTransform: "capitalize",
               background: "#89fc00",
-              color: "#000",
               fontSize: {
                 xs: "0.9rem",
                 md: "0.9rem",
@@ -214,7 +226,7 @@ function HomeHeader() {
               },
             }}
           >
-            Contact Us
+            Sign in
           </Button>
         </Stack>
       </Stack>
