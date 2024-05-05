@@ -4,6 +4,7 @@ import { Button, Grid, Input, Stack, Typography } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import LoginIcon from "@mui/icons-material/Login";
 import logsignimg from "../assets/slide_2.png";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [name, setName] = useState("");
@@ -114,11 +115,11 @@ function Login() {
               }}
             >
               Don't have an account?
-              <Button
-                href="/signup"
-              >
+              <Link to={"/signup"}>
+              <Button>
                 Register
               </Button>
+              </Link>
             </Typography>
           </Stack>
         </Grid>

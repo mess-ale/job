@@ -92,14 +92,20 @@ function Drawer() {
     paddingBottom: "0.5rem",
   };
 
-  const linkOneStyle = {
-    textTransform: "capitalize",
-    paddingLeft: "3rem",
-    fontWeight: "bold",
+  const serviceStyle = {
+    padding: {
+      xs: "1.5rem 1.5rem 3rem 2rem",
+      md: "3rem 1.5rem 3rem 15rem",
+      lg: "3.5rem 5rem 3rem 25rem",
+    },
+    "& a": {
+      textTransform: "capitalize",
+      lineHeight: 1.5,
+      paddingLeft: {xs: '0.5rem', md: '0'}
+    },
   };
 
   const typoStyle = {
-    padding: "1rem 0rem 1rem 2rem",
     paddingBottom: {
       xs: "1rem",
       sm: "1.25rem",
@@ -126,31 +132,27 @@ function Drawer() {
         spacing={{ md: "0.9rem", lg: "1rem" }}
         direction={{ xs: "column", md: "row" }}
       >
-        <Stack
-          onClick={handlIsClicked1}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Link
-            className="uniqueIcon"
-            style={isVisible || isVisible1 ? { color: "#ff4800" } : {}}
-            to={"/Services"}
+        <Stack onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <Stack
+            sx={{ justifyContent: "space-between", alignItems: "center", paddingRight: {xs: '3rem', md: '0'} }}
+            direction={"row"}
+            style={
+              loacation.pathname === "/Services"
+                ? {
+                    color: "#ff4800",
+                  }
+                : {}
+            }
           >
-            <Stack
-              sx={{ justifyContent: "space-between", alignItems: "center" }}
-              direction={"row"}
-              style={
-                loacation.pathname === "/Services"
-                  ? {
-                      color: "#ff4800",
-                    }
-                  : {}
-              }
+            <Link
+              className="uniqueIcon"
+              style={isVisible || isVisible1 ? { color: "#ff4800" } : {}}
+              to={"/Services"}
             >
               Service
-              <KeyboardArrowDown />
-            </Stack>
-          </Link>
+            </Link>
+            <KeyboardArrowDown onClick={handlIsClicked1} sx={{ cursor: 'pointer' }}/>
+          </Stack>
         </Stack>
         <Box
           className={isVisible || isVisible1 ? "slide-in" : "slide-out"}
@@ -168,78 +170,282 @@ function Drawer() {
           onMouseEnter={handleMouseEnter1}
           onMouseLeave={handleMouseLeave1}
         >
-          <Stack
-            direction={{ md: "row" }}
-            sx={{
-              padding: {
-                md: "3rem 1.5rem 3rem 15rem",
-                lg: "3.5rem 5rem 3rem 25rem",
-              },
-              justifyContent: "space-between",
-            }}
-            spacing={"1rem"}
-            className="moreIcon"
-          >
-            <Stack spacing={"0.5rem"}>
-              <Typography sx={typoStyle}>Performance Consulting</Typography>
-              <Link style={linkOneStyle}>Needs Analysis</Link>
-              <Link style={linkOneStyle}>Performance Mapping</Link>
-              <Link style={linkOneStyle}>Evaluation & Measurement</Link>
-              <Link style={linkOneStyle}>Smart L&D Staffing</Link>
-            </Stack>
-            <Stack spacing={"0.5rem"}>
-              <Typography sx={typoStyle}>Instructional Design</Typography>
-              <Link style={linkOneStyle}>Digital Learning</Link>
-              <Link style={linkOneStyle}>Blended Learning</Link>
-              <Link style={linkOneStyle}>ILT and VILT</Link>
-              <Link style={linkOneStyle}>On-Demand Learning</Link>
-              <Link style={linkOneStyle}>Video Services</Link>
-              <Link style={linkOneStyle}>Creative Services</Link>
-              <Link style={linkOneStyle}>Smart L&D Staffing</Link>
-              <Link style={linkOneStyle}></Link>
-            </Stack>
-            <Stack textAlign={"left"} spacing={"0.5rem"}>
-              <Typography sx={typoStyle}>Learning Technologies</Typography>
+          <Grid container sx={serviceStyle}>
+            <Grid item xs={12} md={4}>
+              <Stack>
+                <Typography sx={typoStyle}>Performance Consulting</Typography>
+                <Link
+                  to={"/service/NeedsAnalysis"}
+                  style={
+                    loacation.pathname === "/service/NeedsAnalysis"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Needs Analysis
+                </Link>
+                <Link
+                  to={"/service/PerformanceMapping"}
+                  style={
+                    loacation.pathname === "/service/PerformanceMapping"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Performance Mapping
+                </Link>
+                <Link
+                  to={"/service/EvaluationAndMeasurement"}
+                  style={
+                    loacation.pathname === "/service/EvaluationAndMeasurement"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Evaluation & Measurement
+                </Link>
+                <Link
+                  to={"/service/SmartLNDStaffing"}
+                  style={
+                    loacation.pathname === "/service/SmartLNDStaffing"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Smart L&D Staffing
+                </Link>
+              </Stack>
+            </Grid>
 
-              <Link style={linkOneStyle}>Analysis and Strategy</Link>
-              <Link style={linkOneStyle}>Platform Integrations</Link>
-              <Link style={linkOneStyle}>Web Services and Additions</Link>
-              <Link style={linkOneStyle}>Learning Analytics</Link>
-              <Link style={linkOneStyle}>Adaptive Learning and AI</Link>
-              <Link style={linkOneStyle}>Content Delivery and Scale</Link>
-              <Link style={linkOneStyle}>Smart L&D Staffing</Link>
-            </Stack>
-          </Stack>
+            <Grid item xs={12} md={4}>
+              <Stack>
+                <Typography sx={typoStyle}>Instructional Design</Typography>
+                <Link
+                  to={"/service/DigitalLearning"}
+                  style={
+                    loacation.pathname === "/service/DigitalLearning"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Digital Learning
+                </Link>
+                <Link
+                  to={"/service/BlendedLearning"}
+                  style={
+                    loacation.pathname === "/service/BlendedLearning"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Blended Learning
+                </Link>
+                <Link
+                  to={"/service/ILTVILT"}
+                  style={
+                    loacation.pathname === "/service/ILTVILT"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  ILT and VILT
+                </Link>
+                <Link
+                  to={"Solutions"}
+                  style={
+                    loacation.pathname === "Solutions"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  On-Demand Learning
+                </Link>
+                <Link
+                  to={"/service/BlendedLearning"}
+                  style={
+                    loacation.pathname === "/service/BlendedLearning"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Video Services
+                </Link>
+                <Link
+                  to={"/solutions/LearningManagement"}
+                  style={
+                    loacation.pathname === "/solutions/LearningManagement"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Creative Services
+                </Link>
+                <Link
+                  to={"LearningTechnology"}
+                  style={
+                    loacation.pathname === "LearningTechnology"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Smart L&D Staffing
+                </Link>
+                <Link
+                  to={"/Solutions/LeadershipDevelopmentTraining"}
+                  style={
+                    loacation.pathname ===
+                    "/Solutions/LeadershipDevelopmentTraining"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                ></Link>
+              </Stack>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Stack>
+                <Typography sx={typoStyle}>Learning Technologies</Typography>
+
+                <Link
+                  to={"InstructionalDesign"}
+                  style={
+                    loacation.pathname === "InstructionalDesign"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Analysis and Strategy
+                </Link>
+                <Link
+                  to={"PerformanceConsulting"}
+                  style={
+                    loacation.pathname === "PerformanceConsulting"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Platform Integrations
+                </Link>
+                <Link
+                  to={"Services"}
+                  style={
+                    loacation.pathname === "Services"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Web Services and Additions
+                </Link>
+                <Link
+                  to={"/Solutions/HealthAndSafetyTraining"}
+                  style={
+                    loacation.pathname === "/Solutions/HealthAndSafetyTraining"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Learning Analytics
+                </Link>
+                <Link
+                  to={"/service/ILTVILT"}
+                  style={
+                    loacation.pathname === "/service/ILTVILT"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Adaptive Learning and AI
+                </Link>
+                <Link
+                  to={"/Solutions/EmployeeOnboarding"}
+                  style={
+                    loacation.pathname === "/Solutions/EmployeeOnboarding"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Content Delivery and Scale
+                </Link>
+                <Link
+                  to={"/Solutions/SalesAndServiceTraining"}
+                  style={
+                    loacation.pathname === "/Solutions/SalesAndServiceTraining"
+                      ? {
+                          color: "#ff4800",
+                        }
+                      : {}
+                  }
+                >
+                  Smart L&D Staffing
+                </Link>
+              </Stack>
+            </Grid>
+          </Grid>
         </Box>
 
         <Stack
-          onClick={handlIsClicked2}
           onMouseEnter={handleMouseEnter2}
           onMouseLeave={handleMouseLeave2}
         >
-          <Link
-            to={"/Solutions"}
-            className="uniqueIcon"
-            style={isVisible2 || isVisible21 ? { color: "#ff4800" } : {}}
+          <Stack
+            direction={"row"}
+            sx={{ justifyContent: "space-between", alignItems: "center", paddingRight: {xs: '3rem', md: '0'} }}
+            style={
+              loacation.pathname === "/Solutions"
+                ? {
+                    color: "#ff4800",
+                  }
+                : {}
+            }
           >
-            <Stack
-              direction={"row"}
-              sx={{ justifyContent: "space-between", alignItems: "center" }}
-              style={
-                loacation.pathname === "/Solutions"
-                  ? {
-                      color: "#ff4800",
-                    }
-                  : {}
-              }
+            <Link
+              to={"/Solutions"}
+              className="uniqueIcon"
+              style={isVisible2 || isVisible21 ? { color: "#ff4800" } : {}}
             >
               Solution
-              <KeyboardArrowDown />
-            </Stack>
-          </Link>
+            </Link>
+            <KeyboardArrowDown onClick={handlIsClicked2} sx={{ cursor: 'pointer'}}/>
+          </Stack>
         </Stack>
         <Box
-          className={isVisible2 || isVisible21 ? "slide-in" : "slide-out"}
+          className={(isVisible2 || isVisible21) ? "slide-in" : "slide-out"}
           sx={{
             position: { md: "fixed" },
             top: { md: "32px", lg: "35px" },
@@ -267,7 +473,7 @@ function Drawer() {
             <Grid container>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link to={'/solutions/LearningManagement'}>
+                  <Link to={"/solutions/LearningManagement"}>
                     <Stack
                       sx={{
                         display: { xs: "none", md: "block" },
@@ -295,7 +501,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link to={'/Solutions/LeadershipDevelopmentTraining'}>
+                  <Link to={"/Solutions/LeadershipDevelopmentTraining"}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution2}
@@ -318,7 +524,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link to={'/Solutions/HealthAndSafetyTraining'}>
+                  <Link to={"/Solutions/HealthAndSafetyTraining"}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution3}
@@ -341,7 +547,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link to={'/Solutions/EmployeeOnboarding'}>
+                  <Link to={"/Solutions/EmployeeOnboarding"}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution4}
@@ -364,7 +570,7 @@ function Drawer() {
               </Grid>
               <Grid item xs={12} md={2.4}>
                 <Stack spacing={"0.5rem"}>
-                  <Link to={'/Solutions/SalesAndServiceTraining'}>
+                  <Link to={"/Solutions/SalesAndServiceTraining"}>
                     <Stack sx={{ display: { xs: "none", md: "block" } }}>
                       <img
                         src={solution5}
@@ -392,7 +598,7 @@ function Drawer() {
 
         <Stack>
           <Link
-            to={"/blog"}
+            to={"/blog#"}
             style={
               loacation.pathname === "/blog"
                 ? {
@@ -405,27 +611,33 @@ function Drawer() {
             Blog
           </Link>
         </Stack>
-        <Link to={"/about"} 
-              style={
-                loacation.pathname === "/about"
-                  ? {
-                      color: "#ff4800",
-                    }
-                  : {}
-              }className="uniqueIcon">
+        <Link
+          to={"/about"}
+          style={
+            loacation.pathname === "/about"
+              ? {
+                  color: "#ff4800",
+                }
+              : {}
+          }
+          className="uniqueIcon"
+        >
           About
         </Link>
       </Stack>
 
       <Stack width={{ xs: "100%", md: "25%" }}>
-        <Link to={"/contact"} 
-              style={
-                loacation.pathname === "/contact"
-                  ? {
-                      color: "#ff4800",
-                    }
-                  : {}
-              }className="uniqueIcon">
+        <Link
+          to={"/contact"}
+          style={
+            loacation.pathname === "/contact"
+              ? {
+                  color: "#ff4800",
+                }
+              : {}
+          }
+          className="uniqueIcon"
+        >
           Contact
         </Link>
       </Stack>

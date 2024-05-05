@@ -69,7 +69,7 @@ function EmployeeOnboarding() {
                   border: "solid 2px black",
                   padding: {
                     xs: "0.6rem 1.2rem 0.6rem 1.2rem",
-                    md: "1rem 2rem 1rem 2rem",
+                    md: "0.7rem 1.8rem 0.7rem 1.8rem",
                   },
                   color: "#000",
                   borderRadius: {
@@ -352,34 +352,34 @@ function EmployeeOnboarding() {
           WANT TO KNOW MORE? WE'D LOVE TO HEAR FROM YOU.
         </Typography>
 
-        <Stack alignItems={'center'}>
-          <Button
-            href="/contact"
-            sx={{
-              border: "solid 2px black",
-              borderRadius: {
-                sm: "0.7rem 0.7rem 0.7rem 0rem",
-                md: "0.8rem 0.8rem 0.8rem 0rem",
-                lg: "1rem 1rem 1rem 0rem",
-              },
-              textTransform: "capitalize",
-              background: "#89fc00",
-              fontSize: {
-                xs: "0.9rem",
-                md: "0.9rem",
-                lg: "1rem",
-              },
-              padding: {
-                xs: "0.1rem 1rem 0.1rem 1rem",
-                sm: "0.15rem 1.25rem 0.15rem 1.25rem",
-                md: "0.25rem 1.5rem 0.25rem 1.5rem",
-                lg: "0.5rem 2rem 0.5rem 2rem",
-              },
-              width: "20%",
-            }}
-          >
-            Contact Us
-          </Button>
+        <Stack alignItems={"center"}>
+          <Link top={"/contact"}>
+            <Button
+              sx={{
+                border: "solid 2px black",
+                borderRadius: {
+                  sm: "0.7rem 0.7rem 0.7rem 0rem",
+                  md: "0.8rem 0.8rem 0.8rem 0rem",
+                  lg: "1rem 1rem 1rem 0rem",
+                },
+                textTransform: "capitalize",
+                background: "#89fc00",
+                fontSize: {
+                  xs: "0.9rem",
+                  md: "0.9rem",
+                  lg: "1rem",
+                },
+                padding: {
+                  xs: "0.1rem 1rem 0.1rem 1rem",
+                  sm: "0.15rem 1.25rem 0.15rem 1.25rem",
+                  md: "0.25rem 1.5rem 0.25rem 1.5rem",
+                  lg: "0.5rem 2rem 0.5rem 2rem",
+                },
+              }}
+            >
+              Contact Us
+            </Button>
+          </Link>
         </Stack>
       </Stack>
 

@@ -1,27 +1,29 @@
 /* Slide-in animation */
-.slide-in {
-  animation: slideIn 0.8s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
+@media (min-width: 900px) {
+  .slide-in {
+    animation: slideIn 0.8s ease-in-out forwards;
   }
-  to {
-    transform: translateX(0);
-  }
-}
 
-/* Slide-out animation */
-.slide-out {
-  animation: slideOut 0.8s ease-in-out forwards;
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
-  to {
-    transform: translateX(-100%);
+
+  /* Slide-out animation */
+  .slide-out {
+    animation: slideOut 0.8s ease-in-out forwards;
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 }

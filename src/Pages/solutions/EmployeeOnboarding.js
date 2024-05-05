@@ -1,9 +1,23 @@
-import React from 'react';
-import { Container, Grid, Typography, List, ListItem, ListItemText, Box, Button, Stack, IconButton } from '@mui/material';
-import Footer from '../../components/Footer';
-import HomeHeader from '../../components/HomeHeader';
+import React from "react";
+import {
+  Container,
+  Grid,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+  Stack,
+  IconButton,
+} from "@mui/material";
+import Footer from "../../components/Footer";
+import HomeHeader from "../../components/HomeHeader";
 import logsignimg from "../../assets/insidesolution_3.jpg";
-import { CheckCircleOutline, EmojiPeopleOutlined, LightbulbOutlined } from '@mui/icons-material';
+import {
+  CheckCircleOutline,
+  EmojiPeopleOutlined,
+  LightbulbOutlined,
+} from "@mui/icons-material";
 
 function EmployeeOnboarding() {
   return (
@@ -38,7 +52,8 @@ function EmployeeOnboarding() {
             width: { md: "70%", lg: "55%" },
             textAlign: { xs: "center", md: "left" },
           }}
-        >employee onboarding that focuses on people
+        >
+          employee onboarding that focuses on people
         </Typography>
         <Button
           href="/contact"
@@ -72,94 +87,86 @@ function EmployeeOnboarding() {
         </Button>
       </Stack>
 
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <Typography variant="h4" component="h2" gutterBottom>
-            Streamline Success from Day One with Effective Onboarding
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            A smooth and engaging onboarding experience sets the tone for a
-            positive and productive employee journey. Worldview Training and
-            Consulting Service PLC provides customized onboarding solutions to
-            help you:
-          </Typography>
-          <List>
-            <ListItem>
-              <IconButton sx={{ mr: 1 }}>
-                <CheckCircleOutline color="primary" />
-              </IconButton>
-              <ListItemText primary="Reduce Time to Productivity" />
-            </ListItem>
-            <ListItem>
-              <IconButton sx={{ mr: 1 }}>
-                <EmojiPeopleOutlined color="primary" />
-              </IconButton>
-              <ListItemText primary="Enhance New Hire Engagement and Retention" />
-            </ListItem>
-            <ListItem>
-              <IconButton sx={{ mr: 1 }}>
-                <LightbulbOutlined color="primary" />
-              </IconButton>
-              <ListItemText primary="Foster a Strong Company Culture" />
-            </ListItem>
-          </List>
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Typography variant="h4" component="h2" gutterBottom>
+              Streamline Success from Day One with Effective Onboarding
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              A smooth and engaging onboarding experience sets the tone for a
+              positive and productive employee journey. Worldview Training and
+              Consulting Service PLC provides customized onboarding solutions to
+              help you:
+            </Typography>
+            <List>
+              <ListItem>
+                <IconButton sx={{ mr: 1 }}>
+                  <CheckCircleOutline color="primary" />
+                </IconButton>
+                <ListItemText primary="Reduce Time to Productivity" />
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ mr: 1 }}>
+                  <EmojiPeopleOutlined color="primary" />
+                </IconButton>
+                <ListItemText primary="Enhance New Hire Engagement and Retention" />
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ mr: 1 }}>
+                  <LightbulbOutlined color="primary" />
+                </IconButton>
+                <ListItemText primary="Foster a Strong Company Culture" />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h5" component="h3" gutterBottom>
+              Our Onboarding Solutions
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Pre-boarding Preparation and Communication" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="New Hire Orientation and Welcome Program" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Role-Specific Training and Development" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Mentorship and Buddy Programs" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Performance Management and Feedback Integration" />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h5" component="h3" gutterBottom>
+              Benefits of Effective Onboarding
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Increased Employee Satisfaction" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Improved Employee Engagement" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Reduced Turnover Rates" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Enhanced Employer Branding" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Stronger Company Culture and Values Alignment" />
+              </ListItem>
+            </List>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5" component="h3" gutterBottom>
-            Our Onboarding Solutions
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemText primary="Pre-boarding Preparation and Communication" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="New Hire Orientation and Welcome Program" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Role-Specific Training and Development" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Mentorship and Buddy Programs" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Performance Management and Feedback Integration" />
-            </ListItem>
-          </List>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5" component="h3" gutterBottom>
-            Benefits of Effective Onboarding
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemText primary="Increased Employee Satisfaction" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Improved Employee Engagement" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Reduced Turnover Rates" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Enhanced Employer Branding" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Stronger Company Culture and Values Alignment" />
-            </ListItem>
-          </List>
-        </Grid>
-      </Grid>
-      <Box sx={{ textAlign: 'center', mt: 6 }}>
-        <Typography variant="h5" component="h4">
-          Invest in Your New Hires, Invest in Your Future Success
-        </Typography>
-        <Button variant="contained" sx={{ mt: 2 }}>
-          Learn More About Onboarding Solutions
-        </Button>
-      </Box>
-    </Container>
-    <Stack
+      </Container>
+      <Stack
         sx={{
           background: "#212529",
           padding: {
@@ -182,7 +189,7 @@ function EmployeeOnboarding() {
           component="h2"
           color={"#fff"}
         >
-        Invest in Safety, Invest in Your Workforce
+          Invest in Your New Hires, Invest in Your Future Success
         </Typography>
 
         <Stack alignItems={"center"}>
@@ -213,7 +220,7 @@ function EmployeeOnboarding() {
               },
             }}
           >
-          Explore Health and Safety Training
+            Learn More About Onboarding Solutions
           </Button>
         </Stack>
       </Stack>

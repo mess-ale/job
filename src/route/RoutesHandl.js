@@ -1,28 +1,27 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+//home
 import Home from "../Pages/Home";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import Blog from "../Pages/Blog";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
-import Content from "../Pages/services/ContentCreationAndManagment";
-
-import Customer from "../Pages/services/CustomerEngagement";
-import Digtal from "../Pages/services/DigitalTechnology";
-import MarketiongAndDesign from "../Pages/services/MarketiongAndDesign";
-import Overview from "../Pages/services/Overview";
-import StrategyAndAdvisory from "../Pages/services/StrategyAndAdvisory";
 import Privacy from "../Pages/Privacy";
 import MainLayout from "../components/MainLayout";
 //Performance
-import InstructionalDesign from "../Pages/PERFORMANCE_CONSULTING/InstructionalDesign";
-import PerformanceConsulting from "../Pages/PERFORMANCE_CONSULTING/PerformanceConsulting";
-import LearningTechnology from "../Pages/PERFORMANCE_CONSULTING/LearningTechnology";
-import SmartLNDStaffing from "../Pages/PERFORMANCE_CONSULTING/SmartLNDStaffing";
+import InstructionalDesign from "../Pages/services/PERFORMANCE CONSULTING/PerformanceConsulting";
+import PerformanceConsulting from "../Pages/services/PERFORMANCE CONSULTING/PerformanceConsulting";
+import LearningTechnology from "../Pages/services/LEARNING TECHNOLOGIES/LearningTechnology";
+import SmartLNDStaffing from "../Pages/services/PERFORMANCE CONSULTING/SmartLNDStaffing";
 //services
 import Services from "../Pages/services/Services";
+import NeedsAnalysis from "../Pages/services/PERFORMANCE CONSULTING/NeedsAnalysis";
+import PerformanceMapping from "../Pages/services/PERFORMANCE CONSULTING/PerformanceMapping";
+import EvaluationAndMeasurement from "../Pages/services/PERFORMANCE CONSULTING/EvaluationAndMeasurement";
+import DigitalLearning from "../Pages/services/INSTRUCTIONAL DESIGN/DigitalLearning";
+import BlendedLearning from "../Pages/services/INSTRUCTIONAL DESIGN/BlendedLearning";
+import ILTVILT from "../Pages/services/INSTRUCTIONAL DESIGN/ILTVILT";
 
 //solutions
 import Solutions from "../Pages/solutions/Solutions";
@@ -45,26 +44,41 @@ const RoutesHandl = () => {
       <Route path="InstructionalDesign" element={<InstructionalDesign />} />
       <Route path="PerformanceConsulting" element={<PerformanceConsulting />} />
       <Route path="LearningTechnology" element={<LearningTechnology />} />
-      <Route path="SmartLNDStaffing" element={<SmartLNDStaffing />} />
       <Route path="Services" element={<Services />} />
       <Route path="Solutions" element={<Solutions />} />
 
       <Route path="/service/*" element={<MainLayout />}>
-        <Route path="StrategyAndAdvisory" element={<StrategyAndAdvisory />} />
-        <Route path="Overview" element={<Overview />} />
-        <Route path="MarketiongAndDesign" element={<MarketiongAndDesign />} />
-        <Route path="Digtal" element={<Digtal />} />
-        <Route path="Customer" element={<Customer />} />
-        <Route path="Content" element={<Content />} />
+        <Route path="NeedsAnalysis" element={<NeedsAnalysis />} />
+        <Route path="PerformanceMapping" element={<PerformanceMapping />} />
+        <Route
+          path="EvaluationAndMeasurement"
+          element={<EvaluationAndMeasurement />}
+        />
+        <Route path="SmartLNDStaffing" element={<SmartLNDStaffing />} />
+        <Route path="DigitalLearning" element={<DigitalLearning />} />
+        <Route path="BlendedLearning" element={<BlendedLearning />} />
+        <Route path="ILTVILT" element={<ILTVILT />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Route>
 
       <Route path="/solutions/*" element={<MainLayout />}>
-        <Route path="LearningManagement" element={<LearningManagementSystems />} />
-        <Route path="LeadershipDevelopmentTraining" element={<LeadershipDevelopmentTraining />} />
-        <Route path="HealthAndSafetyTraining" element={<HealthAndSafetyTraining />} />
+        <Route
+          path="LearningManagement"
+          element={<LearningManagementSystems />}
+        />
+        <Route
+          path="LeadershipDevelopmentTraining"
+          element={<LeadershipDevelopmentTraining />}
+        />
+        <Route
+          path="HealthAndSafetyTraining"
+          element={<HealthAndSafetyTraining />}
+        />
         <Route path="EmployeeOnboarding" element={<EmployeeOnboarding />} />
-        <Route path="SalesAndServiceTraining" element={<SalesAndServiceTraining />} />
+        <Route
+          path="SalesAndServiceTraining"
+          element={<SalesAndServiceTraining />}
+        />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Route>
       <Route path="*" element={<Navigate to="/404" replace />} />

@@ -13,6 +13,7 @@ import {
 import Businesses from "../assets/Rectangle.png";
 import success from "../assets/success.png";
 import SwitchingStacks from "../components/SwitchingStacks";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const gridItem = {
@@ -62,7 +63,7 @@ export const Home = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        overflowX: 'hidden'
+        overflowX: "hidden",
       }}
     >
       <Stack sx={{ position: "absolute" }}>
@@ -124,21 +125,22 @@ export const Home = () => {
                 sectors, aiming to enhance their business and management
                 development capabilities.
               </Typography>
-              <Button
-              href="/contact"
-                sx={{
-                  border: "solid 2px black",
-                  width: { xs: "60%", sm: "50%", md: "70%", lg: "50%" },
-                  color: "#000",
-                  borderRadius: {
-                    xs: "1rem 1rem 1rem 0rem",
-                    md: "1.5rem 1.5rem 1.5rem 0rem",
-                  },
-                  textTransform: "capitalize",
-                }}
-              >
-                Schedule a Free Consultation
-              </Button>
+              <Link to={"/contact"}>
+                <Button
+                  sx={{
+                    border: "solid 2px black",
+                    width: { xs: "60%", sm: "50%", md: "70%", lg: "50%" },
+                    color: "#000",
+                    borderRadius: {
+                      xs: "1rem 1rem 1rem 0rem",
+                      md: "1.5rem 1.5rem 1.5rem 0rem",
+                    },
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Schedule a Free Consultation
+                </Button>
+              </Link>
             </Stack>
           </Grid>
 
@@ -201,21 +203,22 @@ export const Home = () => {
                 trusted partner in driving organizational excellence and
                 empowering individuals for success.excellence and empowering.
               </Typography>
-              <Button
-              href="/blog"
-                sx={{
-                  border: "solid 2px white",
-                  width: { xs: "50%", md: "90%", lg: "70%" },
-                  borderRadius: {
-                    xs: "1rem 1rem 1rem 0rem",
-                    md: "1.5rem 1.5rem 1.5rem 0rem",
-                  },
-                  color: "#fff",
-                  textTransform: "capitalize",
-                }}
-              >
-                Read our latest report
-              </Button>
+              <Link to={"/blog"}>
+                <Button
+                  sx={{
+                    border: "solid 2px white",
+                    width: { xs: "50%", md: "90%", lg: "70%" },
+                    borderRadius: {
+                      xs: "1rem 1rem 1rem 0rem",
+                      md: "1.5rem 1.5rem 1.5rem 0rem",
+                    },
+                    color: "#fff",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Read our latest report
+                </Button>
+              </Link>
             </Stack>
           </Grid>
         </Grid>
@@ -283,18 +286,19 @@ export const Home = () => {
                 Teaching Methodology, Work Ethics and Customer service, Business
                 Leadership
               </Typography>
-              <Button
-              href="/Solutions"
-                sx={{
-                  border: "solid 2px #89fc00",
-                  width: "50%",
-                  color: "#89fc00",
-                  borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
-                  textTransform: "capitalize",
-                }}
-              >
-                Check Our Solutions
-              </Button>
+              <Link to={"/Solutions"}>
+                <Button
+                  sx={{
+                    border: "solid 2px #89fc00",
+                    width: "50%",
+                    color: "#89fc00",
+                    borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Check Our Solutions
+                </Button>
+              </Link>
             </Stack>
           </Grid>
 
@@ -368,18 +372,19 @@ export const Home = () => {
             economy. We achieve this through our customized training,
             consultancy, and research services.
           </Typography>
-          <Button
-          href="/about"
-            sx={{
-              border: "solid 2px black",
-              width: "30%",
-              borderRadius: "1rem 1rem 1rem 0rem",
-              background: "#000",
-              color: "#89fc00",
-            }}
-          >
-            Read More
-          </Button>
+          <Link to={"/about"}>
+            <Button
+              sx={{
+                border: "solid 2px black",
+                width: "30%",
+                borderRadius: "1rem 1rem 1rem 0rem",
+                background: "#000",
+                color: "#89fc00",
+              }}
+            >
+              Read More
+            </Button>
+          </Link>
         </Stack>
 
         <Stack
@@ -680,7 +685,12 @@ export const Home = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Stack sx={gridItem1}>
-            <TipsAndUpdates sx={{ color: "#fff", padding: {xs: "2rem 0 1rem 0", md: "2rem 0 2rem 0"} }} />
+            <TipsAndUpdates
+              sx={{
+                color: "#fff",
+                padding: { xs: "2rem 0 1rem 0", md: "2rem 0 2rem 0" },
+              }}
+            />
             <Typography
               sx={{
                 fontSize: "30px",
@@ -695,7 +705,7 @@ export const Home = () => {
                 width: "80%",
                 color: "#fff",
                 textAlign: "center",
-                padding: {xs: "0.5rem 0 1rem 0", md: "1rem 0 2rem 0"},
+                padding: { xs: "0.5rem 0 1rem 0", md: "1rem 0 2rem 0" },
               }}
             >
               As a trusted Data Advisory partner, Worldview Training and
@@ -706,18 +716,19 @@ export const Home = () => {
               assists clients in harnessing the power of data to drive business
               transformation.
             </Typography>
-            <Stack padding= {{xs: "0.5rem 0 3rem 0", md: "1rem 0 2rem 0"}}>
-              <Button
-              href="/Solutions"
-                sx={{
-                  border: "solid 2px #89fc00",
-                  color: "#89fc00",
-                  borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
-                  textTransform: "capitalize",
-                }}
-              >
-                Check out solutions
-              </Button>
+            <Stack padding={{ xs: "0.5rem 0 3rem 0", md: "1rem 0 2rem 0" }}>
+              <Link to={"/Solutions"}>
+                <Button
+                  sx={{
+                    border: "solid 2px #89fc00",
+                    color: "#89fc00",
+                    borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Check out solutions
+                </Button>
+              </Link>
             </Stack>
           </Stack>
         </Grid>
