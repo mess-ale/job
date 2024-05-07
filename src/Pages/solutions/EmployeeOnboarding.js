@@ -18,6 +18,7 @@ import {
   EmojiPeopleOutlined,
   LightbulbOutlined,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 function EmployeeOnboarding() {
   return (
@@ -56,7 +57,6 @@ function EmployeeOnboarding() {
           employee onboarding that focuses on people
         </Typography>
         <Button
-          href="/contact"
           sx={{
             border: "solid 2px black",
             borderRadius: {
@@ -83,7 +83,7 @@ function EmployeeOnboarding() {
             },
           }}
         >
-          Contact Us
+          <Link to={"/contact"}>Contact Us</Link>
         </Button>
       </Stack>
 

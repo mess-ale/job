@@ -18,6 +18,7 @@ import {
 import HomeHeader from "../../components/HomeHeader";
 import Footer from "../../components/Footer";
 import logsignimg from "../../assets/support.jpg";
+import { Link } from "react-router-dom";
 
 function LearningManagementSystems() {
   return (
@@ -82,7 +83,7 @@ function LearningManagementSystems() {
             },
           }}
         >
-          Contact Us
+        <Link to={'/contact'}>Contact Us</Link>
         </Button>
       </Stack>
 

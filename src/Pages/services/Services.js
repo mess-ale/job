@@ -12,6 +12,7 @@ import {
 import HomeHeader from "../../components/HomeHeader";
 import Footer from "../../components/Footer";
 import logsignimg from "../../assets/slide_4.png";
+import { Link } from "react-router-dom";
 
 function Services() {
   return (
@@ -238,7 +239,8 @@ function Services() {
               },
             }}
           >
-            Start Today
+          <Link to={'/contact'}>Start Today</Link>
+            
           </Button>
         </Stack>
       </Stack>

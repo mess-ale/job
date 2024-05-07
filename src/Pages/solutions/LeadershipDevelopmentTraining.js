@@ -4,6 +4,7 @@ import HomeHeader from '../../components/HomeHeader';
 import logsignimg from "../../assets/insidesolution_1.jpg";
 import Footer from '../../components/Footer';
 import { BarChartOutlined, LightbulbOutlined, PeopleAltOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 function LeadershipDevelopmentTraining() {
   return (
@@ -68,7 +69,7 @@ function LeadershipDevelopmentTraining() {
             },
           }}
         >
-          Contact Us
+        <Link to={'/contact'}>Contact Us</Link>
         </Button>
       </Stack>
 

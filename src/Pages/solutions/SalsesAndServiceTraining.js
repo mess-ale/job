@@ -4,6 +4,7 @@ import logsignimg from "../../assets/insidesolution_4.jpg";
 import Footer from '../../components/Footer';
 import HomeHeader from '../../components/HomeHeader';
 import { AttachMoneyOutlined, EmojiPeopleOutlined, StarRateOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 function SalesAndServiceTraining() {
   return (
@@ -69,7 +70,7 @@ function SalesAndServiceTraining() {
             },
           }}
         >
-          Contact Us
+        <Link to={'/contact'}>Contact Us</Link>
         </Button>
       </Stack>
 

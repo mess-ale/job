@@ -1,9 +1,24 @@
-import React from 'react';
-import { Container, Grid, Typography, List, ListItem, ListItemText, IconButton, Button, Stack } from '@mui/material';
-import { SecurityOutlined, ShieldOutlined, WarningOutlined } from '@mui/icons-material';
-import HomeHeader from '../../components/HomeHeader';
-import Footer from '../../components/Footer';
+import React from "react";
+import {
+  Container,
+  Grid,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
+  Button,
+  Stack,
+} from "@mui/material";
+import {
+  SecurityOutlined,
+  ShieldOutlined,
+  WarningOutlined,
+} from "@mui/icons-material";
+import HomeHeader from "../../components/HomeHeader";
+import Footer from "../../components/Footer";
 import logsignimg from "../../assets/insidesolution_2.jpg";
+import { Link } from "react-router-dom";
 
 function HealthAndSafetyTraining() {
   return (
@@ -39,7 +54,7 @@ function HealthAndSafetyTraining() {
             textAlign: { xs: "center", md: "left" },
           }}
         >
-        compliance that balances regulation and culture
+          compliance that balances regulation and culture
         </Typography>
         <Button
           href="/contact"
@@ -69,89 +84,90 @@ function HealthAndSafetyTraining() {
             },
           }}
         >
-          Contact Us
+          <Link to={"/contact"}>Contact Us</Link>
         </Button>
       </Stack>
 
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <Typography variant="h4" component="h2" gutterBottom>
-            Prioritize Safety with Effective Health and Safety Training
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            A safe work environment is essential for every organization. Worldview
-            Training and Consulting Service PLC offers a comprehensive suite of
-            Health and Safety Training programs designed to:
-          </Typography>
-          <List>
-            <ListItem>
-              <IconButton sx={{ mr: 1 }}>
-                <SecurityOutlined color="primary" />
-              </IconButton>
-              <ListItemText primary="Empower Employees to Identify and Mitigate Risks" />
-            </ListItem>
-            <ListItem>
-              <IconButton sx={{ mr: 1 }}>
-                <ShieldOutlined color="primary" />
-              </IconButton>
-              <ListItemText primary="Promote Safe Work Practices and Procedures" />
-            </ListItem>
-            <ListItem>
-              <IconButton sx={{ mr: 1 }}>
-                <WarningOutlined color="primary" />
-              </IconButton>
-              <ListItemText primary="Reduce Workplace Accidents and Injuries" />
-            </ListItem>
-          </List>
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Typography variant="h4" component="h2" gutterBottom>
+              Prioritize Safety with Effective Health and Safety Training
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              A safe work environment is essential for every organization.
+              Worldview Training and Consulting Service PLC offers a
+              comprehensive suite of Health and Safety Training programs
+              designed to:
+            </Typography>
+            <List>
+              <ListItem>
+                <IconButton sx={{ mr: 1 }}>
+                  <SecurityOutlined color="primary" />
+                </IconButton>
+                <ListItemText primary="Empower Employees to Identify and Mitigate Risks" />
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ mr: 1 }}>
+                  <ShieldOutlined color="primary" />
+                </IconButton>
+                <ListItemText primary="Promote Safe Work Practices and Procedures" />
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ mr: 1 }}>
+                  <WarningOutlined color="primary" />
+                </IconButton>
+                <ListItemText primary="Reduce Workplace Accidents and Injuries" />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h5" component="h3" gutterBottom>
+              Our Health and Safety Training Programs
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Workplace Safety Basics" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Fire Safety and Emergency Preparedness" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Hazard Identification and Risk Assessment" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Personal Protective Equipment (PPE) Training" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Industry-Specific Safety Compliance" />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h5" component="h3" gutterBottom>
+              Benefits of Health and Safety Training
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Improved Employee Morale and Engagement" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Reduced Workers' Compensation Costs" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Enhanced Regulatory Compliance" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Positive Impact on Company Culture" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Reduced Downtime and Increased Productivity" />
+              </ListItem>
+            </List>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5" component="h3" gutterBottom>
-            Our Health and Safety Training Programs
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemText primary="Workplace Safety Basics" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Fire Safety and Emergency Preparedness" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Hazard Identification and Risk Assessment" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Personal Protective Equipment (PPE) Training" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Industry-Specific Safety Compliance" />
-            </ListItem>
-          </List>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5" component="h3" gutterBottom>
-            Benefits of Health and Safety Training
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemText primary="Improved Employee Morale and Engagement" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Reduced Workers' Compensation Costs" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Enhanced Regulatory Compliance" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Positive Impact on Company Culture" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Reduced Downtime and Increased Productivity" />
-            </ListItem>
-          </List>
-        </Grid>
-      </Grid>
-    </Container>
-    <Stack
+      </Container>
+      <Stack
         sx={{
           background: "#212529",
           padding: {
@@ -174,7 +190,7 @@ function HealthAndSafetyTraining() {
           component="h2"
           color={"#fff"}
         >
-        Invest in Safety, Invest in Your Workforce
+          Invest in Safety, Invest in Your Workforce
         </Typography>
 
         <Stack alignItems={"center"}>
@@ -205,7 +221,7 @@ function HealthAndSafetyTraining() {
               },
             }}
           >
-          Explore Health and Safety Training
+            Explore Health and Safety Training
           </Button>
         </Stack>
       </Stack>
