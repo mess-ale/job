@@ -41,7 +41,7 @@ function SalesAndServiceTraining() {
           }}
         >
         sales enablement training that creates a culture of performance
-        </Typography>
+        </Typography><Link to={'/contact'}>
         <Button
           href="/contact"
           sx={{
@@ -64,14 +64,13 @@ function SalesAndServiceTraining() {
               md: "0.25rem 1.5rem 0.25rem 1.5rem",
               lg: "0.5rem 2rem 0.5rem 2rem",
             },
-            width: { md: "20%", lg: "15%" },
             "&:hover": {
               background: "#fff",
             },
           }}
         >
-        <Link to={'/contact'}>Contact Us</Link>
-        </Button>
+        Contact Us
+        </Button></Link>
       </Stack>
 
     <Container maxWidth="lg" sx={{ py: 8 }}>

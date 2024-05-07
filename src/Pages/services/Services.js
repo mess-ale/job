@@ -212,6 +212,7 @@ function Services() {
         </Typography>
 
         <Stack alignItems={"center"}>
+          <Link to={'/contact'}>
           <Button
             href="/contact"
             sx={{
@@ -238,10 +239,8 @@ function Services() {
                 background: "#fff",
               },
             }}
-          >
-          <Link to={'/contact'}>Start Today</Link>
-            
-          </Button>
+          >Start Today
+          </Button></Link>
         </Stack>
       </Stack>
 

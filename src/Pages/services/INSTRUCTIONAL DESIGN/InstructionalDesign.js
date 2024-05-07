@@ -76,7 +76,7 @@ function InstructionalDesign() {
             },
           }}
         >
-          Contact Us
+          <Link to={'/contact'}>Contact Us</Link>
         </Button>
       </Stack>
 

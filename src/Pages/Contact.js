@@ -48,7 +48,7 @@ function Contact() {
           <Grid item xs={12} md={6}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <IconButton>
-                <Phonelink color="primary" />
+                <Phonelink sx={{ color: '#89fc00'}} />
               </IconButton>
               <Typography variant="body1" sx={{ ml: 1 }}>
                 +251918645660
@@ -56,7 +56,7 @@ function Contact() {
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <IconButton>
-                <Email color="primary" />
+                <Email sx={{ color: '#89fc00'}} />
               </IconButton>
               <Typography variant="body1" sx={{ ml: 1 }}>
                 worldview@gmail.com
@@ -98,7 +98,7 @@ function Contact() {
                 minRows={4}
                 required
               />
-              <Button variant="contained" type="submit" sx={{ mt: 2 }}>
+              <Button variant="contained" type="submit" sx={{ mt: 2, background: '#89fc00', color: '#000' }}>
                 Send Message
               </Button>
             </form>
