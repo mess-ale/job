@@ -158,6 +158,7 @@ function Drawer() {
           className={isVisible || isVisible1 ? "slide-in" : "slide-out"}
           sx={{
             position: { md: "fixed" },
+            width: '100%',
             top: { md: "35px", lg: "37px" },
             right: 0, // Position at right edge
             backgroundColor: "#E8EAED", // Drawer background color
@@ -449,6 +450,7 @@ function Drawer() {
           sx={{
             position: { md: "fixed" },
             top: { md: "32px", lg: "35px" },
+            width: '100%',
             right: 0, // Position at right edge
             backgroundColor: "#E8EAED", // Drawer background color
             padding: "1rem", // Drawer content padding
