@@ -15,9 +15,9 @@ function Elements({ imageUrl, title, num }) {
   return (
     <Stack sx={stackstyle}>
       <Container>
-        <Stack direction={"row"} alignItems="center" height="89vh" sx={{ display: {xs: 'flex', md: ''}, justifyContent: {xs: 'center', md: 'left'}}}>
+        <Stack direction={"row"} alignItems="center" height="85vh" sx={{ display: {xs: 'flex', md: ''}, justifyContent: {xs: 'center', md: 'left'}}}>
           <Stack
-            width={{ xs: "75%", md: "70%", lg: "65%", xl: "60%" }}
+            width={{ xs: "75%", md: "70%", lg: "65%", xl: "60%" }}  
           >
             <Typography
               sx={{

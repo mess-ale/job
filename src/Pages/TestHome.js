@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
-import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import {
   ArrowDownwardRounded,
@@ -16,6 +16,23 @@ import SwitchingStacks from "../components/SwitchingStacks";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const adjustedViewportWidth =
+    viewportWidth - (window.innerWidth - document.documentElement.clientWidth);
+
   const gridItem = {
     display: "flex",
     alignItems: "center",
@@ -68,6 +85,7 @@ export const Home = () => {
       <Stack
         sx={{
           position: "absolute",
+          width: `calc(${adjustedViewportWidth}px)`,
         }}
       >
         <HomeHeader />
@@ -736,16 +754,17 @@ export const Home = () => {
           </Stack>
         </Grid>
       </Grid>
-
+      
       <Stack
         sx={{ background: "#212529", borderRadius: "2rem 2rem 0rem 0rem" }}
       >
-        <Container
+        <Stack
           sx={{
             color: "#fff",
+            width: { xs: "100%", lg: "20%" },
           }}
         >
-          <Typography sx={{ fontSize: {xs: '30px', md: "38px"}, padding: "3.5rem 0 1rem 0" }}>
+          <Typography sx={{ fontSize: {xs: '30px', md: "38px"}, paddingBottom: "1rem" }}>
             It’s all about a dialogue
           </Typography>
           <Typography sx={{ fontSize: "18px" }}>
@@ -754,7 +773,7 @@ export const Home = () => {
           <Typography sx={{ fontSize: "18px" }}>
             See client stories for more.
           </Typography>
-        </Container>
+        </Stack>
 
         <Stack>
           <Grid
@@ -836,64 +855,6 @@ export const Home = () => {
           </Grid>
         </Stack>
       </Stack>
-
-      <Stack
-        sx={{
-          background: "#89fc00",
-          padding: "5rem 3rem",
-        }}
-        spacing={"3rem"}
-      >
-        <Typography sx={{ fontSize: "35px" }}>Our Clients</Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
-            <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
-            >
-              <Typography
-                sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
-              >
-                Kindergarten
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
-            <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
-            >
-              <Typography
-                sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
-              >
-                Kindergarten
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
-            <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
-            >
-              <Typography
-                sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
-              >
-                Kindergarten
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
-            >
-              <Typography
-                sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
-              >
-                Kindergarten
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
-        <Stack direction={"row"}></Stack>
-      </Stack>
-
       <Stack
         sx={{
           marginTop: "auto",
