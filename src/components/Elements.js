@@ -38,7 +38,7 @@ function Elements({ imageUrl, title, num }) {
             <Stack
               sx={{
                 "& a": {
-                  width: { xs: "70%", sm: "50%", md: "45%", lg: "40%" },
+                  width: { xs: "100%", sm: "50%", md: "45%", lg: "40%" },
                 },
                 alignItems: { xs: "center", md: "baseline" },
               }}
