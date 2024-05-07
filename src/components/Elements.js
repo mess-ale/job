@@ -1,24 +1,9 @@
 import React from "react";
-import { Button, Grid, Stack, Typography } from "@mui/material";
+import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 function Elements({ imageUrl, title, num }) {
-  const buttonStyle = {
-    margin: {
-      xs: "0rem 0rem 0rem 1rem",
-      sm: "0rem 0.8rem 0rem 2rem",
-      md: "0rem 1.5rem 0rem 3.5rem",
-      lg: "0rem 2rem 0rem 5rem",
-    },
-    color: "#fff",
-    paddingTop: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem", lg: "1rem" },
-    textTransform: "capitalize",
-    "&:hover": {
-      boxShadow: "0px -3px 0px #89fc00",
-    },
-  };
-
   const stackstyle = {
     backgroundImage: `url(${imageUrl})`,
     backgroundSize: "cover",
@@ -29,145 +14,143 @@ function Elements({ imageUrl, title, num }) {
 
   return (
     <Stack sx={stackstyle}>
-      <Stack direction={"row"}>
-        <Stack
-          width={{ xs: "75%", md: "70%", lg: "65%", xl: "60%" }}
-          marginLeft={{ xs: "4rem", sm: "6rem", md: "8rem" }}
-          paddingTop={{ xs: "7rem", sm: "8.5rem", md: "10rem" }}
-          sx={{justifyContent: 'center'}}
-        >
-          <Typography
-            sx={{
-              color: "#fff",
-              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
-              fontFamily: "Young Serif",
-              paddingBottom: "3rem",
-              textAlign: {xs: 'center', md: 'left'}
-            }}
-          >
-            {title}
-          </Typography>
+      <Container>
+        <Stack direction={"row"} alignItems="center" height="85vh" sx={{ display: {xs: 'flex', md: ''}, justifyContent: {xs: 'center', md: 'left'}}}>
           <Stack
-            sx={{
-              "& a": {
-                width: { xs: "55%", sm: "45%", md: "35%", lg: "30%" },
-              },
-              alignItems: {xs: 'center', md: 'baseline'}
-            }}
+            width={{ xs: "75%", md: "70%", lg: "65%", xl: "60%" }}
           >
-            <Link to={"/about"}>
-              <Button
-                sx={{
-                  border: "solid 3px #fff",
-                  color: "#fff",
-                  borderRadius: {
-                    xs: "1rem 1rem 1rem 0rem",
-                    md: "1.5rem 1.5rem 1.5rem 0rem",
-                  },
-                  width: "100%",
-                  textTransform: "capitalize",
-                  fontWeight: "bold",
-                  "&:hover": {
-                    background: "#fff",
-                    color: "#89fc00",
-                  },
-                  "& a": {
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.5rem",
+                  md: "3rem",
+                  lg: "3.5rem",
+                },
+                fontFamily: "Young Serif",
+                paddingBottom: "3rem",
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
+              {title}
+            </Typography>
+            <Stack
+              sx={{
+                "& a": {
+                  width: { xs: "55%", sm: "45%", md: "35%", lg: "30%" },
+                },
+                alignItems: { xs: "center", md: "baseline" },
+              }}
+            >
+              <Link to={"/about"}>
+                <Button
+                  sx={{
+                    border: "solid 3px #fff",
                     color: "#fff",
-                    textDecoration: "none",
+                    borderRadius: {
+                      xs: "1rem 1rem 1rem 0rem",
+                      md: "1.5rem 1.5rem 1.5rem 0rem",
+                    },
+                    width: "100%",
+                    textTransform: "capitalize",
+                    fontWeight: "bold",
                     "&:hover": {
                       background: "#fff",
                       color: "#89fc00",
                     },
-                  },
-                  fontSize: { xs: "small", sm: "medium", md: "large" },
-                }}
-                endIcon={<ArrowForward />}
-              >
-                See How We Do It
-              </Button>
-            </Link>
+                    "& a": {
+                      color: "#fff",
+                      textDecoration: "none",
+                    },
+                  }}
+                  endIcon={<ArrowForward />}
+                >
+                  See How We Do It
+                </Button>
+              </Link>
+            </Stack>
           </Stack>
         </Stack>
-      </Stack>
 
-      <Grid
-        container
-        sx={{
-          position: "absolute",
-          bottom: "40px",
-          "& button": {
-            fontSize: { xs: "10px", sm: "12px", md: "14px", lg: "16px" },
-          },
-        }}
-      >
-        <Grid item xs={3}>
-          <Link to={"/PerformanceConsulting"}>
-            <Button
-              style={
-                num === 0
-                  ? {
-                      boxShadow: "0px -3px 0px #89fc00",
-                    }
-                  : {}
-              }
-              sx={buttonStyle}
-            >
-              <Typography>Performance Consulting</Typography>
-            </Button>
-          </Link>
-        </Grid>
+        <Grid
+          container
+          sx={{
+            "& button": {
+              color: "#fff",
+              textTransform: "capitalize",
+              "&:hover": {
+                boxShadow: "0px -3px 0px #89fc00",
+              },
+              fontSize: {xs: '0.7rem', sm: '0.8rem', md: '0.9rem', lg: '1rem'}
+            },
+          }}
+        >
+          <Grid item xs={3}>
+            <Link to={"/PerformanceConsulting"}>
+              <Button
+                style={
+                  num === 0
+                    ? {
+                        boxShadow: "0px -3px 0px #89fc00",
+                      }
+                    : {}
+                }
+              >
+                Performance Consulting
+              </Button>
+            </Link>
+          </Grid>
 
-        <Grid item xs={3}>
-          <Link to={"/InstructionalDesign"}>
-            <Button
-              style={
-                num === 1
-                  ? {
-                      boxShadow: "0px -3px 0px #89fc00",
-                    }
-                  : {}
-              }
-              sx={buttonStyle}
-            >
-              <Typography>Instructional Design</Typography>
-            </Button>
-          </Link>
-        </Grid>
+          <Grid item xs={3}>
+            <Link to={"/InstructionalDesign"}>
+              <Button
+                style={
+                  num === 1
+                    ? {
+                        boxShadow: "0px -3px 0px #89fc00",
+                      }
+                    : {}
+                }
+              >
+                Instructional Design
+              </Button>
+            </Link>
+          </Grid>
 
-        <Grid item xs={3}>
-          <Link to={"/LearningTechnology"}>
-            <Button
-              style={
-                num === 2
-                  ? {
-                      boxShadow: "0px -3px 0px #89fc00",
-                    }
-                  : {}
-              }
-              sx={buttonStyle}
-            >
-              <Typography>Learning Technology</Typography>
-            </Button>
-          </Link>
-        </Grid>
+          <Grid item xs={3}>
+            <Link to={"/LearningTechnology"}>
+              <Button
+                style={
+                  num === 2
+                    ? {
+                        boxShadow: "0px -3px 0px #89fc00",
+                      }
+                    : {}
+                }
+              >
+                Learning Technology
+              </Button>
+            </Link>
+          </Grid>
 
-        <Grid item xs={3}>
-          <Link to={"/service/SmartLNDStaffing"}>
-            <Button
-              style={
-                num === 3
-                  ? {
-                      boxShadow: "0px -3px 0px #89fc00",
-                    }
-                  : {}
-              }
-              sx={buttonStyle}
-            >
-              <Typography>Smart L&D Staffing</Typography>
-            </Button>
-          </Link>
+          <Grid item xs={3}>
+            <Link to={"/service/SmartLNDStaffing"}>
+              <Button
+                style={
+                  num === 3
+                    ? {
+                        boxShadow: "0px -3px 0px #89fc00",
+                      }
+                    : {}
+                }
+              >
+                Smart L&D Staffing
+              </Button>
+            </Link>
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </Stack>
   );
 }

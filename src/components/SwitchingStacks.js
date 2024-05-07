@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import Elements from './Elements';
 import Ele1 from '../assets/slide_1.png'
 import Ele2 from '../assets/slide_2.png';
@@ -45,12 +45,12 @@ const SwitchingStacks = () => {
       }}
     >
       {elements.map((element, index) => (
-        <div
+        <Stack
           key={index}
           className={`switching-element ${index === currentElementIndex ? 'active' : ''}`}
         >
           <Elements imageUrl={element[1]} title={element[0]} num={currentElementIndex}/>
-        </div>
+        </Stack>
       ))}
     </Box>
   );

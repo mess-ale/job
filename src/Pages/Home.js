@@ -63,10 +63,13 @@ export const Home = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        overflowX: "hidden",
       }}
     >
-      <Stack sx={{ position: "absolute" }}>
+      <Stack
+        sx={{
+          position: "absolute",
+        }}
+      >
         <HomeHeader />
       </Stack>
 
@@ -129,7 +132,7 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px black",
-                    width: { xs: "60%", sm: "50%", md: "70%", lg: "50%" },
+                    width: { xs: "90%", sm: "50%", md: "70%", lg: "50%" },
                     color: "#000",
                     borderRadius: {
                       xs: "1rem 1rem 1rem 0rem",
@@ -163,7 +166,7 @@ export const Home = () => {
               <ArrowDownwardRounded
                 sx={{
                   paddingTop: "5rem ",
-                  transition: "transform 0.3s ease",
+                  transition: "transform 1s ease",
                   transform: isArrowUp ? "translateY(-20%)" : "translateY(0)",
                   fontSize: "130px",
                 }}
@@ -207,7 +210,7 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px white",
-                    width: { xs: "50%", md: "90%", lg: "70%" },
+                    width: { xs: "90%", sm: "50%", md: "70%", lg: "50%" },
                     borderRadius: {
                       xs: "1rem 1rem 1rem 0rem",
                       md: "1.5rem 1.5rem 1.5rem 0rem",
@@ -290,7 +293,7 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px #89fc00",
-                    width: "50%",
+                    width: { xs: "90%", sm: "50%", md: "70%", lg: "50%" },
                     color: "#89fc00",
                     borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
                     textTransform: "capitalize",
@@ -376,7 +379,7 @@ export const Home = () => {
             <Button
               sx={{
                 border: "solid 2px black",
-                width: "30%",
+                width: { xs: "60%", sm: "50%", md: "40%", lg: "30%" },
                 borderRadius: "1rem 1rem 1rem 0rem",
                 background: "#000",
                 color: "#89fc00",
