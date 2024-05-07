@@ -453,7 +453,6 @@ function Drawer() {
             width: '100%',
             right: 0, // Position at right edge
             backgroundColor: "#E8EAED", // Drawer background color
-            padding: "1rem", // Drawer content padding
             display: {
               xs: isclicked2 ? "block" : "none",
               md: isVisible2 || isVisible21 ? "block" : "none",
