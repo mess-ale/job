@@ -1,6 +1,5 @@
 # Ignore node_modules folder (common for dependencies)
-node_modules/
-
-build/
-
 .env
+
+db.sqlite3
+
