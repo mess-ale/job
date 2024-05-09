@@ -6,8 +6,8 @@ const MapComponent = () => {
   return (
     <iframe
       src={mapUrl}
-      width="600"
-      height="450"
+      width={'100%'}
+      height={'460rem'}
       style={{ border: "2px solid #89fc00", /* Adjust border properties here */ }}
       allowFullScreen=""
       loading="lazy"

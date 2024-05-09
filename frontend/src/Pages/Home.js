@@ -604,7 +604,7 @@ export const Home = () => {
         </Grid>
       </Stack>
 
-      <Stack className="component" padding={'3rem 0 3rem 0'}>
+      <Stack className="component" padding={'3rem 1rem 3rem 1rem'}>
         <Container>
           <Grid container alignItems={"center"}>
             <Grid item xs={12} md={6}>
@@ -617,6 +617,8 @@ export const Home = () => {
                     md: "3rem",
                     lg: "3.5rem",
                   },
+                  paddingBottom: {xs: '2rem', md: '0'},
+                  textAlign: {xs: 'center', md: 'left'},
                   fontFamily: "Young Serif",
                 }}
               >
