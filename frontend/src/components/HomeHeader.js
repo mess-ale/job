@@ -1,9 +1,22 @@
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/Rectangle 41 (1).png";
 import { Close, Login, Menu } from "@mui/icons-material";
 import Drawer from "./DrawerLinks";
+import { ACCESS_TOKEN } from "../constants";
+import DrawerUsers from "./DrawerUsers";
+
+function isLoggedIn() {
+  const token = localStorage.getItem(ACCESS_TOKEN);
+  return token != null;
+}
 
 function HomeHeader() {
   const [scrolling, setScrolling] = useState(false);
@@ -61,7 +74,7 @@ function HomeHeader() {
       transition: "background-color 0.3s ease",
     }),
     zIndex: "310",
-    height: { xs: "4.5rem", sm: "5rem", md: "5.5rem", lg: "6rem" },
+    height: { xs: "4.5rem", sm: "5rem", md: "5.25rem", lg: "5.5rem" },
     alignItems: "center", // Vertically center the child element
     fontSize: { xs: "0.9rem", md: "0.9rem", lg: "1rem" },
     "&:hover": {
@@ -198,38 +211,42 @@ function HomeHeader() {
             },
           }}
         >
-          <Link to={"/login"}>
-            <Button
-              endIcon={<Login style={{ color: "#000" }} />}
-              style={{ color: "#000", "&:hover": { color: "#89fc00" } }}
-              sx={{
-                border: "solid 2px black",
-                borderRadius: {
-                  sm: "0.7rem 0.7rem 0.7rem 0rem",
-                  md: "0.8rem 0.8rem 0.8rem 0rem",
-                  lg: "1rem 1rem 1rem 0rem",
-                },
-                textTransform: "capitalize",
-                background: "#89fc00",
-                fontSize: {
-                  xs: "0.9rem",
-                  md: "0.9rem",
-                  lg: "1rem",
-                },
-                padding: {
-                  xs: "0.1rem 1rem 0.1rem 1rem",
-                  sm: "0.15rem 1.25rem 0.15rem 1.25rem",
-                  md: "0.25rem 1.5rem 0.25rem 1.5rem",
-                  lg: "0.5rem 2rem 0.5rem 2rem",
-                },
-                "&:hover": {
-                  color: "#ff4800",
-                },
-              }}
-            >
-              Sign in
-            </Button>
-          </Link>
+          <Stack direction={'row'} alignItems={'center'}>
+            {!isLoggedIn() && <Link to={"/login"}>
+              <Button
+                endIcon={<Login style={{ color: "#000" }} />}
+                style={{ color: "#000", "&:hover": { color: "#89fc00" } }}
+                sx={{
+                  border: "solid 2px black",
+                  borderRadius: {
+                    sm: "0.7rem 0.7rem 0.7rem 0rem",
+                    md: "0.8rem 0.8rem 0.8rem 0rem",
+                    lg: "1rem 1rem 1rem 0rem",
+                  },
+                  textTransform: "capitalize",
+                  background: "#89fc00",
+                  fontSize: {
+                    xs: "0.9rem",
+                    md: "0.9rem",
+                    lg: "1rem",
+                  },
+                  padding: {
+                    xs: "0.1rem 1rem 0.1rem 1rem",
+                    sm: "0.15rem 1.25rem 0.15rem 1.25rem",
+                    md: "0.25rem 1.5rem 0.25rem 1.5rem",
+                    lg: "0.5rem 2rem 0.5rem 2rem",
+                  },
+                  "&:hover": {
+                    color: "#ff4800",
+                  },
+                }}
+              >
+                Sign in
+              </Button>
+            </Link>}
+            {isLoggedIn() && <DrawerUsers />}
+            
+          </Stack>
         </Stack>
       </Stack>
 

@@ -151,21 +151,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:3000',  # Replace with React app's domain and port
-# ]
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Replace with React app's domain and port
+]
 
-# CORS_ALLOW_METHODS = [
-#     'GET',
-#     'POST',
-#     'PUT',
-#     'PATCH',
-#     'DELETE',
-#     'OPTIONS',
-# ]
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+]
 
-# CORS_ALLOW_HEADERS = [
-#     'Content-Type',
-#     'Authorization',
-#     'X-Requested-With',
-# ]
+CORS_ALLOW_HEADERS = [
+    'Content-Type',
+    'Authorization',
+    'X-Requested-With',
+]

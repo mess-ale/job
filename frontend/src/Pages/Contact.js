@@ -3,6 +3,8 @@ import { Footer } from "../components/Footer";
 import { Box, Button, Container, Grid, IconButton, Stack, TextField, Typography } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import { Email, Phonelink } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import axios from "../api";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -10,16 +12,25 @@ function Contact() {
     email: "",
     message: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic (e.g., send email, display success message)
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" }); // Clear form after submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://127.0.0.1:8000/api/user/contact/", {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
+      navigate("/ContactSuccess");
+    } catch (error) {
+      alert(error);
+    } 
   };
 
   return (

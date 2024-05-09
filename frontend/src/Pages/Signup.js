@@ -11,49 +11,29 @@ import {
 import HomeHeader from "../components/HomeHeader.js";
 import logsignimg from "../assets/slide_2.png";
 import LoginIcon from "@mui/icons-material/Login";
+import axios from "../api.js";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [rePasswordError, setRePasswordError] = useState("");
-  const [emailError, setEmailError] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email) {
-      setEmailError(true);
+    try {
+      await axios.post("http://127.0.0.1:8000/api/user/register/", {
+        username: name,
+        password: password,
+        email: email,
+      });
+      navigate("/login");
+    } catch (error) {
+      alert(error);
     }
-
-    if (!name) {
-      setNameError(true);
-    }
-    if (!password) {
-      setPasswordError(true);
-    }
-    if (!rePassword) {
-      setRePasswordError(true);
-    }
-
-    if (
-      !name ||
-      !password ||
-      !rePassword ||
-      password !== rePassword ||
-      !email
-    ) {
-      // history.push("/home/upload");
-    }
-
-    setName("");
-    setPassword("");
-    setRePassword("");
-    setEmail("");
-    console.log("sign up seccessesful");
   };
 
   const sxinput = {
@@ -188,7 +168,6 @@ function SignUp() {
                     placeholder="Your Name"
                     value={name}
                     required
-                    error={nameError}
                     onChange={(e) => setName(e.target.value)}
                     sx={sxinput}
                     style={styleinput}
@@ -198,7 +177,6 @@ function SignUp() {
                     placeholder="Your Email"
                     value={email}
                     required
-                    error={emailError}
                     onChange={(e) => setEmail(e.target.value)}
                     sx={sxinput}
                     style={styleinput}
@@ -207,7 +185,6 @@ function SignUp() {
                   <Input
                     type="password"
                     required
-                    error={passwordError}
                     placeholder="Your Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -217,7 +194,6 @@ function SignUp() {
                   <Input
                     type="password"
                     required
-                    error={rePasswordError}
                     placeholder="Repeat Your Password"
                     value={rePassword}
                     onChange={(e) => setRePassword(e.target.value)}

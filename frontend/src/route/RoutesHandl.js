@@ -30,6 +30,14 @@ import LeadershipDevelopmentTraining from "../Pages/solutions/LeadershipDevelopm
 import HealthAndSafetyTraining from "../Pages/solutions/HealthAndSafetyTraining";
 import EmployeeOnboarding from "../Pages/solutions/EmployeeOnboarding";
 import SalesAndServiceTraining from "../Pages/solutions/SalsesAndServiceTraining";
+//page not found
+import NotFound from "../components/NotFound";
+import ContactSuccess from "../components/ContactSuccess";
+
+function Logout() {
+  localStorage.clear();
+  return <Navigate to="/login" />;
+}
 
 const RoutesHandl = () => {
   return (
@@ -41,11 +49,13 @@ const RoutesHandl = () => {
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="blog" element={<Blog />} />
+      <Route path="logout" element={<Logout />} />
       <Route path="InstructionalDesign" element={<InstructionalDesign />} />
       <Route path="PerformanceConsulting" element={<PerformanceConsulting />} />
       <Route path="LearningTechnology" element={<LearningTechnology />} />
       <Route path="Services" element={<Services />} />
       <Route path="Solutions" element={<Solutions />} />
+      <Route path="ContactSuccess" element={<ContactSuccess />} />
 
       <Route path="/service/*" element={<MainLayout />}>
         <Route path="NeedsAnalysis" element={<NeedsAnalysis />} />
@@ -58,7 +68,7 @@ const RoutesHandl = () => {
         <Route path="DigitalLearning" element={<DigitalLearning />} />
         <Route path="BlendedLearning" element={<BlendedLearning />} />
         <Route path="ILTVILT" element={<ILTVILT />} />
-        <Route path="*" element={<Navigate to="/404" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
 
       <Route path="/solutions/*" element={<MainLayout />}>
@@ -79,9 +89,9 @@ const RoutesHandl = () => {
           path="SalesAndServiceTraining"
           element={<SalesAndServiceTraining />}
         />
-        <Route path="*" element={<Navigate to="/404" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<Navigate to="/404" replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

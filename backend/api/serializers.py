@@ -1,32 +1,28 @@
 from rest_framework import serializers
-from .models import User, Profile, ClassificationResult, SkinImage, SkinDisease
+from .models import User, Contact, Blog
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        write_only=True,
+        required=True,
+        style={'input_type': 'password'}
+    )
+
     class Meta:
         model = User
-        fields = ["id","username","password","email"]
-        extra_kwargs = {"password": {"write_only": True}}
+        fields = ('username', 'password', 'email')
 
-    def Create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
+    def create(self, validated_data):
+        user = User.objects.create_user(
+            username=validated_data['username'],
+            password=validated_data['password'],
+            email=validated_data['email']
+        )
         return user
 
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = '__all__'
 
-class ClassificationResultSerializer(serializers.ModelSerializer):
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ClassificationResult
-        fields = '__all__'
+        model = Contact
+        fields = ('contact_id', 'name', 'email', 'message', 'created_at')
 
-class SkinImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SkinImage
-        fields = '__all__'
-
-class SkinDiseaseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SkinDisease
-        fields = '__all__'

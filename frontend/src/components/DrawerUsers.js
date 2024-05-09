@@ -1,7 +1,5 @@
-import { Edit, Logout } from "@mui/icons-material";
 import {
   Avatar,
-  Button,
   Divider,
   Drawer,
   IconButton,
@@ -9,63 +7,55 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import LogoutDialog from "./LogoutDialog";
+import api from "../api";
 
 function DrawerUsers() {
   const [open, setOpen] = useState(false);
+  const [userDataName, setUserDataName] = useState('');
+  const [userDataEmail, setUserDataEmail] = useState('');
+
+  useEffect(() => {
+    api.get('http://127.0.0.1:8000/api/user/data/')
+    .then(response => {
+      const userData = response.data;
+      setUserDataName(userData.username);
+      setUserDataEmail(userData.email);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }, []); 
 
   return (
     <Stack>
-      <IconButton onClick={() => setOpen(true)} sx={{ color: "#3f51b5" }}>
-        <Avatar />
-      </IconButton>
-      <Drawer open={open} onClose={() => setOpen(false)}>
+      <Stack onClick={() => setOpen(true)} direction={'row'} alignItems={'center'} sx={{ cursor: 'pointer'}}>
+        <IconButton  sx={{ color: "#3f51b5" }}>
+          <Avatar />
+        </IconButton>
+        <Typography sx={{ color: "#ccc",}}>{userDataName}</Typography>
+      </Stack>
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <List sx={{ padding: "4rem 6rem 0rem 2rem" }}>
           <Stack direction="row" spacing="1rem" paddingBottom="1.5rem">
             <Avatar sx={{ backgroundColor: "#3f51b5" }} />
             <Typography paddingTop="0.7rem" sx={{ fontWeight: "bold" }}>
-              Meseret Alemnew
+              {userDataName}
             </Typography>
           </Stack>
-          <Stack paddingBottom={'2.5rem'}>
+          <Stack paddingBottom={"2.5rem"}>
             <Divider />
           </Stack>
           <Stack spacing="1rem">
             <Typography sx={{ color: "#757575" }}>
-              Name: Meseret Alemenw
+              Name: {userDataName}
             </Typography>
-            <Typography sx={{ color: "#757575" }}>
-              Date of birth: 22/12/2023
-            </Typography>
-            <Typography sx={{ color: "#757575" }}>
-              Gender: male
-            </Typography>
-            <Typography sx={{ color: "#757575" }}>
-              Addrase: addis ababa
-            </Typography>
-            <Typography sx={{ color: "#757575" }}>
-              phone number: 094839489
-            </Typography>
+            <Typography sx={{ color: "#757575" }}>Email: {userDataEmail}</Typography>
           </Stack>
           <Stack paddingTop="5rem" spacing="2rem">
             <Divider />
-            <Stack spacing={"0.5rem"} paddingTop={"1.5rem"}>
-              <Button
-                startIcon={<Edit />}
-                sx={{
-                  color: "#3f51b5",
-                  justifyContent: "flex-start",
-                }}
-              >
-                Edit your profile
-              </Button>
-              <Button
-                startIcon={<Logout />}
-                sx={{ color: "#f44336", justifyContent: "flex-start" }}
-              >
-                LogOut
-              </Button>
-            </Stack>
+            <LogoutDialog />
           </Stack>
         </List>
       </Drawer>

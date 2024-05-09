@@ -11,29 +11,33 @@ import {
 import HomeHeader from "../components/HomeHeader";
 import LoginIcon from "@mui/icons-material/Login";
 import logsignimg from "../assets/slide_2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import api from "../api";
 
 function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [nameError, setNameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    if (name === "") {
-      setNameError(true);
-    }
-    if (password === "") {
-      setPasswordError(true);
-    }
-
-    if (!name && !password) {
-      // history.push("/home/upload");
-    }
-
+  const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
-    setName("");
-    setPassword("");
+
+    try {
+      const res = await api.post("http://127.0.0.1:8000/api/token/", {
+        username: name,
+        password: password,
+      });
+      localStorage.setItem(ACCESS_TOKEN, res.data.access);
+      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+      navigate("/")
+    } catch (error) {
+      alert(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -170,7 +174,6 @@ function Login() {
                     placeholder="Your Name"
                     value={name}
                     required
-                    error={nameError}
                     sx={{
                       fontSize: {
                         xs: "0.7rem",
@@ -193,7 +196,6 @@ function Login() {
                     type="password"
                     required
                     placeholder="Your Password"
-                    error={passwordError}
                     value={password}
                     sx={{
                       fontSize: {
