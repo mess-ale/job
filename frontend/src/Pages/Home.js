@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
-import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  styled,
+} from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import {
   ArrowDownwardRounded,
@@ -14,6 +22,8 @@ import Businesses from "../assets/Rectangle.png";
 import success from "../assets/success.png";
 import SwitchingStacks from "../components/SwitchingStacks";
 import { Link } from "react-router-dom";
+import MapComponent from "../components/MapComponent";
+import "../components/Animation.css";
 
 export const Home = () => {
   const gridItem = {
@@ -594,6 +604,32 @@ export const Home = () => {
         </Grid>
       </Stack>
 
+      <Stack className="component" padding={'3rem 0 3rem 0'}>
+        <Container>
+          <Grid container alignItems={"center"}>
+            <Grid item xs={12} md={6}>
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontSize: {
+                    xs: "2rem",
+                    sm: "2.5rem",
+                    md: "3rem",
+                    lg: "3.5rem",
+                  },
+                  fontFamily: "Young Serif",
+                }}
+              >
+                Our Location
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <MapComponent />
+            </Grid>
+          </Grid>
+        </Container>
+      </Stack>
+
       <Stack>
         <Stack
           direction={{ xs: "column", md: "row" }}
@@ -745,7 +781,12 @@ export const Home = () => {
             color: "#fff",
           }}
         >
-          <Typography sx={{ fontSize: {xs: '30px', md: "38px"}, padding: "3.5rem 0 1rem 0" }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "30px", md: "38px" },
+              padding: "3.5rem 0 1rem 0",
+            }}
+          >
             It’s all about a dialogue
           </Typography>
           <Typography sx={{ fontSize: "18px" }}>
