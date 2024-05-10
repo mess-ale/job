@@ -48,8 +48,8 @@ function InstructionalDesign() {
         >
           Instructional Design
         </Typography>
+          <Link to={'/contact'}>
         <Button
-          href="/contact"
           sx={{
             border: "solid 2px black",
             borderRadius: {
@@ -75,9 +75,8 @@ function InstructionalDesign() {
               background: "#fff",
             },
           }}
-        >
-          <Link to={'/contact'}>Contact Us</Link>
-        </Button>
+        >Contact Us
+        </Button></Link>
       </Stack>
 
       <Container maxWidth="lg" sx={{ py: 8 }}>

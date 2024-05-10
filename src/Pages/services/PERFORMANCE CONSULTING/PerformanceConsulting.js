@@ -12,6 +12,7 @@ import {
 import HomeHeader from "../../../components/HomeHeader";
 import Footer from "../../../components/Footer";
 import logsignimg from "../../../assets/slide_4.png";
+import { Link } from "react-router-dom";
 
 function PerformanceConsulting() {
   return (
@@ -47,8 +48,8 @@ function PerformanceConsulting() {
         >
           TRAINING CONSULTING
         </Typography>
+        <Link to={"/contact"}>
           <Button
-            href="/contact"
             sx={{
               border: "solid 2px black",
               borderRadius: {
@@ -69,14 +70,13 @@ function PerformanceConsulting() {
                 md: "0.25rem 1.5rem 0.25rem 1.5rem",
                 lg: "0.5rem 2rem 0.5rem 2rem",
               },
-              width: {md: '20%', lg : "15%"},
               "&:hover": {
                 background: '#fff',
               }
             }}
           >
             Contact Us
-          </Button>
+          </Button></Link>
       </Stack>
 
       <Container
