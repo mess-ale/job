@@ -4,7 +4,7 @@ import { Box, Button, Container, Grid, IconButton, Stack, TextField, Typography 
 import HomeHeader from "../components/HomeHeader";
 import { Email, Phonelink } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import axios from "../api";
+// import axios from "../api";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -21,16 +21,16 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await axios.post("http://127.0.0.1:8000/api/user/contact/", {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      });
-      navigate("/ContactSuccess");
-    } catch (error) {
-      alert(error);
-    } 
+    // try {
+    //   await axios.post("http://127.0.0.1:8000/api/user/contact/", {
+    //     name: formData.name,
+    //     email: formData.email,
+    //     message: formData.message,
+    //   });
+    //   navigate("/ContactSuccess");
+    // } catch (error) {
+    //   alert(error);
+    // } 
   };
 
   return (

@@ -9,24 +9,24 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import LogoutDialog from "./LogoutDialog";
-import api from "../api";
+// import api from "../api";
 
 function DrawerUsers() {
   const [open, setOpen] = useState(false);
   const [userDataName, setUserDataName] = useState('');
   const [userDataEmail, setUserDataEmail] = useState('');
 
-  useEffect(() => {
-    api.get('http://127.0.0.1:8000/api/user/data/')
-    .then(response => {
-      const userData = response.data;
-      setUserDataName(userData.username);
-      setUserDataEmail(userData.email);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  }, []); 
+  // useEffect(() => {
+  //   api.get('http://127.0.0.1:8000/api/user/data/')
+  //   .then(response => {
+  //     const userData = response.data;
+  //     setUserDataName(userData.username);
+  //     setUserDataEmail(userData.email);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  // }, []); 
 
   return (
     <Stack>

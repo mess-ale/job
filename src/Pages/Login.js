@@ -12,8 +12,8 @@ import HomeHeader from "../components/HomeHeader";
 import LoginIcon from "@mui/icons-material/Login";
 import logsignimg from "../assets/slide_2.png";
 import { Link, useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-import api from "../api";
+// import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+// import api from "../api";
 
 function Login() {
   const [name, setName] = useState("");
@@ -25,19 +25,19 @@ function Login() {
     setLoading(true);
     e.preventDefault();
 
-    try {
-      const res = await api.post("http://127.0.0.1:8000/api/token/", {
-        username: name,
-        password: password,
-      });
-      localStorage.setItem(ACCESS_TOKEN, res.data.access);
-      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-      navigate("/")
-    } catch (error) {
-      alert(error);
-    } finally {
-      setLoading(false);
-    }
+    // try {
+    //   const res = await api.post("http://127.0.0.1:8000/api/token/", {
+    //     username: name,
+    //     password: password,
+    //   });
+    //   localStorage.setItem(ACCESS_TOKEN, res.data.access);
+    //   localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+    //   navigate("/")
+    // } catch (error) {
+    //   alert(error);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (

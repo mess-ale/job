@@ -11,7 +11,7 @@ import {
 import HomeHeader from "../components/HomeHeader.js";
 import logsignimg from "../assets/slide_2.png";
 import LoginIcon from "@mui/icons-material/Login";
-import axios from "../api.js";
+// import axios from "../api.js";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
@@ -24,16 +24,16 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await axios.post("http://127.0.0.1:8000/api/user/register/", {
-        username: name,
-        password: password,
-        email: email,
-      });
-      navigate("/login");
-    } catch (error) {
-      alert(error);
-    }
+    // try {
+    //   await axios.post("http://127.0.0.1:8000/api/user/register/", {
+    //     username: name,
+    //     password: password,
+    //     email: email,
+    //   });
+    //   navigate("/login");
+    // } catch (error) {
+    //   alert(error);
+    // }
   };
 
   const sxinput = {

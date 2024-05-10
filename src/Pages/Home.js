@@ -7,7 +7,6 @@ import {
   Grid,
   Stack,
   Typography,
-  styled,
 } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import {
