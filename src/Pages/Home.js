@@ -23,7 +23,7 @@ import success from "../assets/success.png";
 import SwitchingStacks from "../components/SwitchingStacks";
 import { Link } from "react-router-dom";
 import MapComponent from "../components/MapComponent";
-import "../components/Animation.css";
+import "../style/Animation.css";
 
 export const Home = () => {
   const gridItem = {

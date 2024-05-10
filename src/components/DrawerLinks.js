@@ -5,7 +5,7 @@ import solution3 from "../assets/solutions (3).png";
 import solution4 from "../assets/solutions (4).png";
 import solution5 from "../assets/solutions (5).png";
 import React, { useEffect, useState } from "react";
-import "./Animation.css"; // Import the CSS file with animation styles
+import "../style/Animation.css";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
 
