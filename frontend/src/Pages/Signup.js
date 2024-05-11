@@ -19,9 +19,11 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     try {
@@ -33,6 +35,8 @@ function SignUp() {
       navigate("/login");
     } catch (error) {
       alert(error);
+    }finally {
+      setLoading(false);
     }
   };
 

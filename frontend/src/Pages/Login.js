@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import LoginIcon from "@mui/icons-material/Login";
-import logsignimg from "../assets/slide_1.pqng";
 import { Link, useNavigate } from "react-router-dom";
+import logsignimg from "../assets/slide_2.png";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import api from "../api";
 
