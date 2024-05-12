@@ -128,7 +128,7 @@ function Login() {
               >
                 Don't have an account?
                 <Link to={"/signup"}>
-                  <Button>Register</Button>
+                  <Button color="secondary">Register</Button>
                 </Link>
               </Typography>
             </Stack>

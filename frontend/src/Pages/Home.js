@@ -7,6 +7,7 @@ import {
   Grid,
   Stack,
   Typography,
+  useTheme,
 } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import {
@@ -25,6 +26,8 @@ import MapComponent from "../components/MapComponent";
 import "../style/Animation.css";
 
 export const Home = () => {
+  const theme = useTheme();
+
   const gridItem = {
     display: "flex",
     alignItems: "center",
@@ -32,7 +35,7 @@ export const Home = () => {
     flexDirection: "column",
     height: "100%",
     width: "100%",
-    background: "#000",
+    background: theme.palette.background.main,
     borderRadius: { xs: "1rem 1rem 0 0", md: "2rem 0 0 0" },
     "& img": {
       borderRadius: { xs: "1rem 1rem 0 0", md: "2rem 0 0 0" },
@@ -46,7 +49,7 @@ export const Home = () => {
     flexDirection: "column",
     height: "100%",
     width: "100%",
-    background: "#000",
+    background: theme.palette.background.main,
     borderRadius: { xs: "0 0 1rem 1rem", md: "0 2rem 0 0" },
   };
   const image = {
@@ -107,7 +110,7 @@ export const Home = () => {
           <Grid item xs={12} md={6} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#89fc00",
+                background: theme.palette.primary.main,
                 padding: {
                   xs: "1rem 1.4rem 2rem 2rem",
                   md: "2.25rem 1.5rem 2.25rem 2.25rem",
@@ -141,8 +144,8 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px black",
-                    width: { xs: "90%", sm: "50%", md: "70%", lg: "50%" },
-                    color: "#000",
+                    padding: '0.35rem 1.5rem 0.35rem 1.5rem',
+                    color: theme.palette.text.main,
                     borderRadius: {
                       xs: "1rem 1rem 1rem 0rem",
                       md: "1.5rem 1.5rem 1.5rem 0rem",
@@ -165,7 +168,7 @@ export const Home = () => {
             <Stack
               sx={{
                 margin: { md: "8.75rem 0 0 0" },
-                background: "#ced4da",
+                background: theme.palette.background.arrow,
                 borderRadius: { xs: "1rem", md: "2rem" },
                 alignItems: "center",
                 flexGrow: 1, // Set flex-grow property to 1
@@ -186,7 +189,7 @@ export const Home = () => {
           <Grid item xs={12} md={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#000",
+                background: theme.palette.background.main,
                 padding: {
                   xs: "1rem 1.4rem 2rem 2rem",
                   md: "2.25rem 1.5rem 2.25rem 2.25rem",
@@ -199,7 +202,7 @@ export const Home = () => {
                 sx={{
                   fontSize: { xs: "25px", md: "30px" },
                   paddingBottom: { xs: "0.7rem", md: "1rem" },
-                  color: "#fff",
+                  color: theme.palette.text.primary,
                 }}
               >
                 Welcome
@@ -208,7 +211,7 @@ export const Home = () => {
                 sx={{
                   width: { xs: "90%", md: "85%", lg: "85%" },
                   paddingBottom: { xs: "1rem", md: "2rem" },
-                  color: "#fff",
+                  color: theme.palette.text.primary,
                 }}
               >
                 Welcome to Worldview Training and Consulting Service PLC, your
@@ -219,12 +222,12 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px white",
-                    width: { xs: "90%", sm: "50%", md: "70%", lg: "50%" },
+                    padding: '0.35rem 1.5rem 0.35rem 1.5rem',
                     borderRadius: {
                       xs: "1rem 1rem 1rem 0rem",
                       md: "1.5rem 1.5rem 1.5rem 0rem",
                     },
-                    color: "#fff",
+                    color: theme.palette.text.primary,
                     textTransform: "capitalize",
                   }}
                 >
@@ -263,7 +266,7 @@ export const Home = () => {
           <Grid item xs={12} md={5}>
             <Stack
               sx={{
-                background: "#000",
+                background: theme.palette.background.main,
                 padding: {
                   xs: "1.65rem 1rem 1.25rem 1.25rem",
                   sm: "2rem 1.25rem 1.5rem 1.5rem",
@@ -277,7 +280,7 @@ export const Home = () => {
                 sx={{
                   fontSize: { xs: "23px", sm: "25px", md: "27px", lg: "30px" },
                   paddingBottom: { xs: "0.7rem", md: "1rem" },
-                  color: "#89fc00",
+                  color: theme.palette.text.primary2,
                 }}
               >
                 Training Services
@@ -286,7 +289,7 @@ export const Home = () => {
                 sx={{
                   width: { xs: "90%", sm: "80%", md: "90%", lg: "80%" },
                   paddingBottom: "2rem",
-                  color: "#89fc00",
+                  color: theme.palette.text.primary2,
                 }}
               >
                 The company provides regular and tailored training programs in
@@ -302,8 +305,8 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px #89fc00",
-                    width: { xs: "90%", sm: "50%", md: "70%", lg: "50%" },
-                    color: "#89fc00",
+                    padding: '0.35rem 1.5rem 0.35rem 1.5rem',
+                    color: theme.palette.text.primary2,
                     borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
                     textTransform: "capitalize",
                   }}
@@ -318,7 +321,7 @@ export const Home = () => {
             <Stack
               sx={{
                 alignItems: "center",
-                background: "#89fc00",
+                background: theme.palette.primary.main,
                 borderRadius: { xs: "1rem", md: "2rem" },
                 padding: "5rem 2rem 5rem 2rem",
               }}
@@ -331,7 +334,7 @@ export const Home = () => {
 
       <Stack
         sx={{
-          background: "#fff",
+          background: theme.palette.background.white,
           borderRadius: {
             xs: "1rem 1rem 0rem 0rem",
             md: "2rem 2rem 0rem 0rem",
@@ -390,8 +393,8 @@ export const Home = () => {
                 border: "solid 2px black",
                 width: { xs: "60%", sm: "50%", md: "40%", lg: "30%" },
                 borderRadius: "1rem 1rem 1rem 0rem",
-                background: "#000",
-                color: "#89fc00",
+                background: theme.palette.background.main,
+                color: theme.palette.text.primary2,
               }}
             >
               Read More
@@ -426,7 +429,7 @@ export const Home = () => {
           <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#E8EAED",
+                background: theme.palette.background.default,
                 padding: {
                   xs: "3rem 1.6rem 3.5rem 1.6rem",
                   sm: "4rem 2.5rem 5rem 2.5rem",
@@ -441,14 +444,14 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 Private Sector
               </Typography>
               <Typography
                 sx={{
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 In the fast-paced and competitive private sector, organizations
@@ -462,7 +465,7 @@ export const Home = () => {
           <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#89fc00",
+                background: theme.palette.primary.main,
                 padding: {
                   xs: "3rem 1.6rem 3.5rem 1.6rem",
                   sm: "4rem 2.5rem 5rem 2.5rem",
@@ -477,14 +480,14 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 Public Sector
               </Typography>
               <Typography
                 sx={{
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 The public sector plays a vital role in serving communities and
@@ -498,14 +501,14 @@ export const Home = () => {
           <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#E8EAED",
+                background: theme.palette.background.default,
                 padding: {
                   xs: "3rem 1.6rem 3.5rem 1.6rem",
                   sm: "4rem 2.5rem 5rem 2.5rem",
                   md: "3.5rem 2.5rem 4rem 2.5rem",
                   lg: "4rem 3rem 6rem 3rem",
                 },
-                borderRadius: "2rem",
+                borderRadius: {xs: '1rem', md: "2rem"},
               }}
             >
               <BusinessCenter paddingBottom={"1rem"} />
@@ -513,14 +516,14 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 NGO Sector
               </Typography>
               <Typography
                 sx={{
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 Non-Governmental Organizations (NGOs) play a crucial role in
@@ -534,7 +537,7 @@ export const Home = () => {
           <Grid item xs={12} md={6} lg={4} sx={{ display: "flex" }}>
             <Stack
               sx={{
-                background: "#89fc00",
+                background: theme.palette.primary.main,
                 padding: {
                   xs: "3rem 1.6rem 3.5rem 1.6rem",
                   sm: "4rem 2.5rem 5rem 2.5rem",
@@ -549,7 +552,7 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                   position: "right",
                 }}
               >
@@ -558,7 +561,7 @@ export const Home = () => {
               <Typography
                 sx={{
                   paddingBottom: "2rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 In the rapidly evolving IT industry, staying ahead of the curve
@@ -573,7 +576,7 @@ export const Home = () => {
             <Stack
               sx={{
                 padding: "3rem",
-                background: "#E8EAED",
+                background: theme.palette.background.default,
                 borderRadius: "2rem",
               }}
             >
@@ -582,7 +585,7 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 Healthcare
@@ -590,7 +593,7 @@ export const Home = () => {
               <Typography
                 sx={{
                   paddingBottom: "2rem",
-                  color: "#000",
+                  color: theme.palette.text.main,
                 }}
               >
                 The healthcare and pharmaceutical industries require specialized
@@ -609,7 +612,7 @@ export const Home = () => {
             <Grid item xs={12} md={6}>
               <Typography
                 sx={{
-                  color: "#000",
+                  color: theme.palette.text.main,
                   fontSize: {
                     xs: "2rem",
                     sm: "2.5rem",
@@ -659,7 +662,7 @@ export const Home = () => {
             sx={{
               alignItems: "center",
               width: "50%",
-              background: "#fff",
+              background: theme.palette.background.white,
               padding: { xs: "5rem", sm: "6rem", md: "7rem", lg: "8rem" },
               borderRadius: { xs: "2rem 2rem 2rem 2rem", md: "0 2rem 0 0" },
             }}
@@ -681,7 +684,7 @@ export const Home = () => {
       <Stack
         sx={{
           alignItems: "center",
-          background: "#89fc00",
+          background: theme.palette.primary.main,
           padding: {
             xs: "2rem 2.5rem 2.5rem 2.5rem",
             sm: "2.5rem 3rem 3rem 3rem",
@@ -727,14 +730,14 @@ export const Home = () => {
           <Stack sx={gridItem1}>
             <TipsAndUpdates
               sx={{
-                color: "#fff",
+                color: theme.palette.text.primary,
                 padding: { xs: "2rem 0 1rem 0", md: "2rem 0 2rem 0" },
               }}
             />
             <Typography
               sx={{
                 fontSize: "30px",
-                color: "#fff",
+                color: theme.palette.text.primary,
                 padding: "1rem 0 2rem 0",
               }}
             >
@@ -743,7 +746,7 @@ export const Home = () => {
             <Typography
               sx={{
                 width: "80%",
-                color: "#fff",
+                color: theme.palette.text.primary,
                 textAlign: "center",
                 padding: { xs: "0.5rem 0 1rem 0", md: "1rem 0 2rem 0" },
               }}
@@ -761,7 +764,7 @@ export const Home = () => {
                 <Button
                   sx={{
                     border: "solid 2px #89fc00",
-                    color: "#89fc00",
+                    color: theme.palette.text.primary2,
                     borderRadius: "1.5rem 1.5rem 1.5rem 0rem",
                     textTransform: "capitalize",
                   }}
@@ -775,11 +778,11 @@ export const Home = () => {
       </Grid>
 
       <Stack
-        sx={{ background: "#212529", borderRadius: "2rem 2rem 0rem 0rem" }}
+        sx={{ background: theme.palette.secondary.default, borderRadius: "2rem 2rem 0rem 0rem" }}
       >
         <Container
           sx={{
-            color: "#fff",
+            color: theme.palette.text.primary,
           }}
         >
           <Typography
@@ -812,10 +815,10 @@ export const Home = () => {
             <Grid item xs={12} sm={6} md={4}>
               <Stack
                 sx={{
-                  background: "#000",
+                  background: theme.palette.background.main,
                   padding: "3rem",
                   borderRadius: "2rem",
-                  color: "#fff",
+                  color: theme.palette.text.primary,
                 }}
                 spacing={"2rem"}
               >
@@ -834,10 +837,10 @@ export const Home = () => {
             <Grid item xs={12} sm={6} md={4}>
               <Stack
                 sx={{
-                  background: "#000",
+                  background: theme.palette.background.main,
                   padding: "3rem",
                   borderRadius: "2rem",
-                  color: "#fff",
+                  color: theme.palette.text.primary,
                 }}
                 spacing={"2rem"}
               >
@@ -856,10 +859,10 @@ export const Home = () => {
             <Grid item xs={12} sm={6} md={4}>
               <Stack
                 sx={{
-                  background: "#000",
+                  background: theme.palette.background.main,
                   padding: "3rem",
                   borderRadius: "2rem",
-                  color: "#fff",
+                  color: theme.palette.text.primary,
                 }}
                 spacing={"2rem"}
               >
@@ -881,7 +884,7 @@ export const Home = () => {
 
       <Stack
         sx={{
-          background: "#89fc00",
+          background: theme.palette.primary.main,
           padding: "5rem 3rem",
         }}
         spacing={"3rem"}
@@ -890,7 +893,7 @@ export const Home = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
@@ -901,7 +904,7 @@ export const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
@@ -912,7 +915,7 @@ export const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
@@ -923,7 +926,7 @@ export const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Box
-              sx={{ background: "#000", color: "#fff", borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}

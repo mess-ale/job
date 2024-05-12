@@ -33,6 +33,9 @@ import SalesAndServiceTraining from "../Pages/solutions/SalsesAndServiceTraining
 //page not found
 import NotFound from "../components/NotFound";
 import ContactSuccess from "../components/ContactSuccess";
+//theme
+import theme from "../theme/ThemeProvider";
+import { ThemeProvider } from "@emotion/react";
 
 function Logout() {
   localStorage.clear();
@@ -41,58 +44,63 @@ function Logout() {
 
 const RoutesHandl = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="Privacy" element={<Privacy />} />
-      <Route path="login" element={<Login />} />
-      <Route path="signup" element={<Signup />} />
-      <Route path="blog" element={<Blog />} />
-      <Route path="logout" element={<Logout />} />
-      <Route path="InstructionalDesign" element={<InstructionalDesign />} />
-      <Route path="PerformanceConsulting" element={<PerformanceConsulting />} />
-      <Route path="LearningTechnology" element={<LearningTechnology />} />
-      <Route path="Services" element={<Services />} />
-      <Route path="Solutions" element={<Solutions />} />
-      <Route path="ContactSuccess" element={<ContactSuccess />} />
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="Privacy" element={<Privacy />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="logout" element={<Logout />} />
+        <Route path="InstructionalDesign" element={<InstructionalDesign />} />
+        <Route
+          path="PerformanceConsulting"
+          element={<PerformanceConsulting />}
+        />
+        <Route path="LearningTechnology" element={<LearningTechnology />} />
+        <Route path="Services" element={<Services />} />
+        <Route path="Solutions" element={<Solutions />} />
+        <Route path="ContactSuccess" element={<ContactSuccess />} />
 
-      <Route path="/service/*" element={<MainLayout />}>
-        <Route path="NeedsAnalysis" element={<NeedsAnalysis />} />
-        <Route path="PerformanceMapping" element={<PerformanceMapping />} />
-        <Route
-          path="EvaluationAndMeasurement"
-          element={<EvaluationAndMeasurement />}
-        />
-        <Route path="SmartLNDStaffing" element={<SmartLNDStaffing />} />
-        <Route path="DigitalLearning" element={<DigitalLearning />} />
-        <Route path="BlendedLearning" element={<BlendedLearning />} />
-        <Route path="ILTVILT" element={<ILTVILT />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+        <Route path="/service/*" element={<MainLayout />}>
+          <Route path="NeedsAnalysis" element={<NeedsAnalysis />} />
+          <Route path="PerformanceMapping" element={<PerformanceMapping />} />
+          <Route
+            path="EvaluationAndMeasurement"
+            element={<EvaluationAndMeasurement />}
+          />
+          <Route path="SmartLNDStaffing" element={<SmartLNDStaffing />} />
+          <Route path="DigitalLearning" element={<DigitalLearning />} />
+          <Route path="BlendedLearning" element={<BlendedLearning />} />
+          <Route path="ILTVILT" element={<ILTVILT />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
 
-      <Route path="/solutions/*" element={<MainLayout />}>
-        <Route
-          path="LearningManagement"
-          element={<LearningManagementSystems />}
-        />
-        <Route
-          path="LeadershipDevelopmentTraining"
-          element={<LeadershipDevelopmentTraining />}
-        />
-        <Route
-          path="HealthAndSafetyTraining"
-          element={<HealthAndSafetyTraining />}
-        />
-        <Route path="EmployeeOnboarding" element={<EmployeeOnboarding />} />
-        <Route
-          path="SalesAndServiceTraining"
-          element={<SalesAndServiceTraining />}
-        />
+        <Route path="/solutions/*" element={<MainLayout />}>
+          <Route
+            path="LearningManagement"
+            element={<LearningManagementSystems />}
+          />
+          <Route
+            path="LeadershipDevelopmentTraining"
+            element={<LeadershipDevelopmentTraining />}
+          />
+          <Route
+            path="HealthAndSafetyTraining"
+            element={<HealthAndSafetyTraining />}
+          />
+          <Route path="EmployeeOnboarding" element={<EmployeeOnboarding />} />
+          <Route
+            path="SalesAndServiceTraining"
+            element={<SalesAndServiceTraining />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+      </Routes>
+    </ThemeProvider>
   );
 };
 

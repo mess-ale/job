@@ -57,7 +57,7 @@ function Elements({ imageUrl, title, num }) {
                     fontWeight: "bold",
                     "&:hover": {
                       background: "#fff",
-                      color: "#89fc00",
+                      color: "#ff4800",
                     },
                     "& a": {
                       color: "#fff",
