@@ -157,6 +157,7 @@ function Drawer() {
         <Box
           className={isVisible || isVisible1 ? "slide-in" : "slide-out"}
           sx={{
+            boxShadow: 1,
             position: { md: "fixed" },
             width: '100%',
             top: { md: "35px", lg: "37px" },
@@ -331,9 +332,9 @@ function Drawer() {
                 <Typography sx={typoStyle}>Learning Technologies</Typography>
 
                 <Link
-                  to={"InstructionalDesign"}
+                  to={"/InstructionalDesign"}
                   style={
-                    loacation.pathname === "InstructionalDesign"
+                    loacation.pathname === "/InstructionalDesign"
                       ? {
                           color: "#ff4800",
                         }
@@ -343,9 +344,9 @@ function Drawer() {
                   Analysis and Strategy
                 </Link>
                 <Link
-                  to={"PerformanceConsulting"}
+                  to={"/PerformanceConsulting"}
                   style={
-                    loacation.pathname === "PerformanceConsulting"
+                    loacation.pathname === "/PerformanceConsulting"
                       ? {
                           color: "#ff4800",
                         }
@@ -355,9 +356,9 @@ function Drawer() {
                   Platform Integrations
                 </Link>
                 <Link
-                  to={"Services"}
+                  to={"/Services"}
                   style={
-                    loacation.pathname === "Services"
+                    loacation.pathname === "/Services"
                       ? {
                           color: "#ff4800",
                         }
@@ -448,6 +449,7 @@ function Drawer() {
         <Box
           className={(isVisible2 || isVisible21) ? "slide-in" : "slide-out"}
           sx={{
+            boxShadow: 1,
             position: { md: "fixed" },
             top: { md: "32px", lg: "35px" },
             width: '100%',

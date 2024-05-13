@@ -8,12 +8,15 @@ import {
   Link,
   Stack,
   Typography,
+  useTheme,
 } from "@mui/material";
 import HomeHeader from "../components/HomeHeader";
 import logo from "../assets/Rectangle 41 (1).png";
 import Employee from "../assets/theam.jpg";
 
 function EmployeeOnboarding() {
+  const theme = useTheme();
+
   return (
     <Stack
       sx={{
@@ -363,7 +366,9 @@ function EmployeeOnboarding() {
                   lg: "1rem 1rem 1rem 0rem",
                 },
                 textTransform: "capitalize",
-                background: "#89fc00",
+                "&:hover": {
+                  background: "#fff",
+                },
                 fontSize: {
                   xs: "0.9rem",
                   md: "0.9rem",

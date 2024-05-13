@@ -78,12 +78,42 @@ function Blog() {
 
       <Container
         maxWidth="lg"
-        sx={{ py: 8, padding: { xs: "5rem 0.8rem 5rem 0.8rem", md: "10rem 1.3rem 10rem 1.3rem" } }}
+        sx={{
+          py: 8,
+          padding: {
+            xs: "5rem 0.8rem 5rem 0.8rem",
+            md: "10rem 1.3rem 10rem 1.3rem",
+          },
+        }}
       >
         <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <Typography variant="h4" component="h2" gutterBottom>
-              Blogs
+          <Grid item xs={12} textAlign={"center"} paddingBottom={"2rem"}>
+            <Typography
+              gutterBottom
+              sx={{
+                fontWeight: "bold",
+                fontSize: {
+                  xs: "1.9rem",
+                  sm: "2.2rem",
+                  md: "2.6rem",
+                  lg: "3rem",
+                },
+              }}
+            >
+              Worldview BLOG
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.2rem",
+                  md: "1.4rem",
+                  lg: "1.6rem",
+                },
+              }}
+            >
+              Sharing training insights, the latest L&D trends, and tips to
+              improve your training and development here.
             </Typography>
           </Grid>
           {blogPosts.map((post) => (

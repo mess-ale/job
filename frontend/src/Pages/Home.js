@@ -145,7 +145,7 @@ export const Home = () => {
                   sx={{
                     border: "solid 2px black",
                     padding: '0.35rem 1.5rem 0.35rem 1.5rem',
-                    color: theme.palette.text.main,
+                    color: theme.palette.text.primary,
                     borderRadius: {
                       xs: "1rem 1rem 1rem 0rem",
                       md: "1.5rem 1.5rem 1.5rem 0rem",
@@ -202,7 +202,7 @@ export const Home = () => {
                 sx={{
                   fontSize: { xs: "25px", md: "30px" },
                   paddingBottom: { xs: "0.7rem", md: "1rem" },
-                  color: theme.palette.text.primary,
+                  color: theme.palette.text.main,
                 }}
               >
                 Welcome
@@ -211,7 +211,7 @@ export const Home = () => {
                 sx={{
                   width: { xs: "90%", md: "85%", lg: "85%" },
                   paddingBottom: { xs: "1rem", md: "2rem" },
-                  color: theme.palette.text.primary,
+                  color: theme.palette.text.main,
                 }}
               >
                 Welcome to Worldview Training and Consulting Service PLC, your
@@ -227,7 +227,7 @@ export const Home = () => {
                       xs: "1rem 1rem 1rem 0rem",
                       md: "1.5rem 1.5rem 1.5rem 0rem",
                     },
-                    color: theme.palette.text.primary,
+                    color: theme.palette.text.main,
                     textTransform: "capitalize",
                   }}
                 >
@@ -444,14 +444,14 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 Private Sector
               </Typography>
               <Typography
                 sx={{
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 In the fast-paced and competitive private sector, organizations
@@ -480,14 +480,14 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 Public Sector
               </Typography>
               <Typography
                 sx={{
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 The public sector plays a vital role in serving communities and
@@ -516,14 +516,14 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 NGO Sector
               </Typography>
               <Typography
                 sx={{
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 Non-Governmental Organizations (NGOs) play a crucial role in
@@ -552,7 +552,7 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                   position: "right",
                 }}
               >
@@ -561,7 +561,7 @@ export const Home = () => {
               <Typography
                 sx={{
                   paddingBottom: "2rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 In the rapidly evolving IT industry, staying ahead of the curve
@@ -585,7 +585,7 @@ export const Home = () => {
                 sx={{
                   fontSize: "30px",
                   paddingBottom: "1rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 Healthcare
@@ -593,7 +593,7 @@ export const Home = () => {
               <Typography
                 sx={{
                   paddingBottom: "2rem",
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                 }}
               >
                 The healthcare and pharmaceutical industries require specialized
@@ -612,7 +612,7 @@ export const Home = () => {
             <Grid item xs={12} md={6}>
               <Typography
                 sx={{
-                  color: theme.palette.text.main,
+                  color: theme.palette.text.primary,
                   fontSize: {
                     xs: "2rem",
                     sm: "2.5rem",
@@ -737,7 +737,7 @@ export const Home = () => {
             <Typography
               sx={{
                 fontSize: "30px",
-                color: theme.palette.text.primary,
+                color: theme.palette.text.main,
                 padding: "1rem 0 2rem 0",
               }}
             >
@@ -746,7 +746,7 @@ export const Home = () => {
             <Typography
               sx={{
                 width: "80%",
-                color: theme.palette.text.primary,
+                color: theme.palette.text.main,
                 textAlign: "center",
                 padding: { xs: "0.5rem 0 1rem 0", md: "1rem 0 2rem 0" },
               }}
@@ -782,7 +782,7 @@ export const Home = () => {
       >
         <Container
           sx={{
-            color: theme.palette.text.primary,
+            color: theme.palette.text.main,
           }}
         >
           <Typography
@@ -818,7 +818,7 @@ export const Home = () => {
                   background: theme.palette.background.main,
                   padding: "3rem",
                   borderRadius: "2rem",
-                  color: theme.palette.text.primary,
+                  color: theme.palette.text.main,
                 }}
                 spacing={"2rem"}
               >
@@ -840,7 +840,7 @@ export const Home = () => {
                   background: theme.palette.background.main,
                   padding: "3rem",
                   borderRadius: "2rem",
-                  color: theme.palette.text.primary,
+                  color: theme.palette.text.main,
                 }}
                 spacing={"2rem"}
               >
@@ -862,7 +862,7 @@ export const Home = () => {
                   background: theme.palette.background.main,
                   padding: "3rem",
                   borderRadius: "2rem",
-                  color: theme.palette.text.primary,
+                  color: theme.palette.text.main,
                 }}
                 spacing={"2rem"}
               >
@@ -893,7 +893,7 @@ export const Home = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
-              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.main, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
@@ -904,7 +904,7 @@ export const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
-              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.main, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
@@ -915,7 +915,7 @@ export const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3} sx={{ paddingRight: "0.5rem" }}>
             <Box
-              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.main, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}
@@ -926,7 +926,7 @@ export const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Box
-              sx={{ background: theme.palette.background.main, color: theme.palette.text.primary, borderRadius: "2rem" }}
+              sx={{ background: theme.palette.background.main, color: theme.palette.text.main, borderRadius: "2rem" }}
             >
               <Typography
                 sx={{ padding: "3rem", textAlign: "center", fontSize: "25px" }}

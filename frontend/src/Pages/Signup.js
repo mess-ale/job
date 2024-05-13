@@ -35,17 +35,17 @@ function SignUp() {
       navigate("/login");
     } catch (error) {
       alert(error);
-    }finally {
+    } finally {
       setLoading(false);
     }
   };
 
   const sxinput = {
     fontSize: {
-      xs: "0.9rem",
-      sm: "1rem",
-      md: "1.1rem",
-      lg: "1.2rem",
+      xs: "0.7rem",
+      sm: "0.8rem",
+      md: "0.9rem",
+      lg: "1rem",
     },
     fontFamily: "Outfit",
     width: "70%",
@@ -74,15 +74,15 @@ function SignUp() {
         <HomeHeader />
       </Stack>
 
-      <Container>
+      <Container maxWidth={'md'}>
         <Grid
           container
           sx={{
             padding: {
-              xs: "1rem 1rem 2rem 1rem",
-              sm: "2rem 2rem 2.5rem 2rem",
-              md: "1.5rem 6rem 3rem 6rem",
-              lg: "1rem 7rem 4rem 7rem",
+              xs: "1rem 2rem 2rem 2rem",
+              sm: "2rem 0rem 2.5rem 0rem",
+              md: "1.5rem 0rem 3rem 0rem",
+              lg: "1rem 0rem 4rem 0rem",
             },
           }}
           spacing={{ xs: "2rem", sm: "3rem", md: "4rem", lg: "6rem" }}
@@ -93,7 +93,7 @@ function SignUp() {
               sx={{
                 color: "#000",
                 fontWeight: "bold",
-                textAlign: { xs: "center", md: "left" },
+                textAlign: { xs: "center", sm: "left" },
                 fontSize: {
                   xs: "2rem",
                   sm: "2.1rem",
@@ -110,7 +110,6 @@ function SignUp() {
 
             <Typography
               sx={{
-                textAlign: "justify",
                 fontSize: {
                   xs: "1.1rem",
                   sm: "1rem",
@@ -120,14 +119,6 @@ function SignUp() {
                 fontFamily: "Outfit",
               }}
             >
-              <span
-                style={{
-                  color: "#00C6CF",
-                  fontWeight: "bold",
-                }}
-              >
-                Worldview
-              </span>{" "}
               Create your Worldview Training and Consulting Service PLC account
               (:
             </Typography>
@@ -144,7 +135,7 @@ function SignUp() {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    padding: "1rem 0 2rem 0",
+                    padding: "2rem 0 1.5rem 0",
                     fontSize: {
                       xs: "1.2rem",
                       sm: "1rem",
@@ -162,8 +153,7 @@ function SignUp() {
                 <Stack
                   spacing={{
                     xs: "1rem",
-                    sm: "1.5rem",
-                    md: "2rem",
+                    md: "1.5rem",
                   }}
                   sx={{ alignItems: "center" }}
                 >
@@ -207,28 +197,29 @@ function SignUp() {
                   <Typography sx={{ color: "red" }}>
                     {password !== rePassword && "password do not match"}
                   </Typography>
+                </Stack>
+                
+                <Stack sx={{ alignItems: "center", paddingTop: '1.5rem' }}>
+                  <Button
+                    type="submit"
+                    endIcon={<LoginIcon />}
+                    sx={{
+                      width: "70%",
+                      color: "#333",
+                      padding: "0.3rem 2rem",
+                      marginBottom: "4rem",
+                      borderRadius: "5px",
+                      backgroundImage:
+                        "linear-gradient(to right, #7FD1AE, #00C6CF)",
 
-                  <Stack>
-                    <Button
-                      type="submit"
-                      endIcon={<LoginIcon />}
-                      sx={{
-                        color: "#333",
-                        padding: "0.3rem 2rem",
-                        marginBottom: "4rem",
-                        borderRadius: "5px",
-                        backgroundImage:
-                          "linear-gradient(to right, #7FD1AE, #00C6CF)",
-
-                        "&:hover": {
-                          backgroundColor: "#e0e0e0",
-                        },
-                        fontFamily: "Young Serif",
-                      }}
-                    >
-                      Sign Up
-                    </Button>
-                  </Stack>
+                      "&:hover": {
+                        backgroundColor: "#e0e0e0",
+                      },
+                      fontFamily: "Young Serif",
+                    }}
+                  >
+                    Sign Up
+                  </Button>
                 </Stack>
               </form>
             </Stack>

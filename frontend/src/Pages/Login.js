@@ -32,7 +32,7 @@ function Login() {
       });
       localStorage.setItem(ACCESS_TOKEN, res.data.access);
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-      navigate("/")
+      navigate("/");
     } catch (error) {
       alert(error);
     } finally {
@@ -56,15 +56,15 @@ function Login() {
         <HomeHeader />
       </Stack>
 
-      <Container>
+      <Container maxWidth={'md'}>
         <Grid
           container
           sx={{
             padding: {
-              xs: "1rem 1rem 2rem 1rem",
-              sm: "2rem 1rem 2.5rem 1rem",
-              md: "1.5rem 6rem 3rem 6rem",
-              lg: "1rem 10rem 4rem 10rem",
+              xs: "1rem 2rem 2rem 2rem",
+              sm: "2rem 0rem 2.5rem 0rem",
+              md: "1.5rem 0rem 3rem 0rem",
+              lg: "1rem 0rem 4rem 0rem",
             },
           }}
           spacing={{ xs: "2rem", sm: "3rem", md: "4rem", lg: "6rem" }}
@@ -75,7 +75,7 @@ function Login() {
               sx={{
                 color: "#000",
                 fontWeight: "bold",
-                textAlign: { xs: "center", md: "left" },
+                textAlign: { xs: "center", sm: "left" },
                 fontSize: {
                   xs: "2rem",
                   sm: "2.1rem",
@@ -139,6 +139,7 @@ function Login() {
               sx={{
                 backgroundImage: `url(${logsignimg})`,
                 borderRadius: "1rem",
+                
               }}
             >
               <form onSubmit={handleSubmit}>
@@ -146,7 +147,7 @@ function Login() {
                   sx={{
                     color: "#fff",
                     textAlign: "center",
-                    padding: "2rem 0 2rem 0",
+                    padding: "2rem 0 1rem 0",
                     fontSize: {
                       xs: "1.2rem",
                       sm: "1.5rem",
@@ -162,10 +163,10 @@ function Login() {
                 </Typography>
                 <Stack
                   spacing={{
-                    xs: "1.7rem",
-                    sm: "2.5rem",
-                    md: "2.75rem",
-                    lg: "3rem",
+                    xs: "1rem",
+                    sm: "1.5rem",
+                    md: "1.75rem",
+                    lg: "2rem",
                   }}
                   sx={{ alignItems: "center" }}
                 >
@@ -215,34 +216,36 @@ function Login() {
                     }}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <Stack
+                </Stack>
+                <Stack
+                  sx={{
+                    paddingBottom: { xs: "4rem", sm: "4.5rem", md: "5rem" },
+                    paddingTop: { xs: "2.5rem", sm: "2.75rem", md: "3rem" },
+                    alignItems: "center",
+                  }}
+                >
+                  <Button
+                    type="submit"
+                    endIcon={<LoginIcon />}
                     sx={{
-                      paddingBottom: { xs: "4rem", sm: "4.5rem", md: "5rem" },
-                      paddingTop: { xs: "1.5rem", sm: "1.75rem", md: "2rem" },
+                      backgroundImage:
+                        "linear-gradient(to right, #00C6CF, #7FD1AE)",
+                      borderRadius: "5px",
+                      width: "65%",
+                      color: "#333",
+                      padding: {
+                        xs: "0.2rem 1.5rem",
+                        sm: "0.2rem 1.75rem",
+                        md: "0.3rem 2rem",
+                      },
+                      "&:hover": {
+                        backgroundColor: "#e0e0e0",
+                      },
+                      fontFamily: "Young Serif",
                     }}
                   >
-                    <Button
-                      type="submit"
-                      endIcon={<LoginIcon />}
-                      sx={{
-                        backgroundImage:
-                          "linear-gradient(to right, #00C6CF, #7FD1AE)",
-                        borderRadius: "5px",
-                        color: "#333",
-                        padding: {
-                          xs: "0.2rem 1.5rem",
-                          sm: "0.2rem 1.75rem",
-                          md: "0.3rem 2rem",
-                        },
-                        "&:hover": {
-                          backgroundColor: "#e0e0e0",
-                        },
-                        fontFamily: "Young Serif",
-                      }}
-                    >
-                      Log In
-                    </Button>
-                  </Stack>
+                    Log In
+                  </Button>
                 </Stack>
               </form>
             </Stack>

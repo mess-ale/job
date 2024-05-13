@@ -16,8 +16,8 @@ const theme = createTheme({
       white: '#fff',
     },
     text: {
-      primary: '#fff', // Color 4
-      main: '#000', // Color 5
+      primary: '#000', // Color 4
+      main: '#fff', // Color 5
       primary2: '#89fc00' // color 6
     },
     hover: {

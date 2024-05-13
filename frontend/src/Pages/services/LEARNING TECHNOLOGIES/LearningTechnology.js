@@ -188,7 +188,6 @@ function LearningTechnology() {
                 lg: "1rem 1rem 1rem 0rem",
               },
               textTransform: "capitalize",
-              background: "#89fc00",
               fontSize: {
                 xs: "0.9rem",
                 md: "0.9rem",
